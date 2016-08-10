@@ -19,7 +19,7 @@
 class ControllerPaymentCardGate extends Controller {
 
     // update plugin version also in admin/controller/payment/cardgate/cardgate.php
-    public $version = '2.1.7';
+    public $version = '2.1.8';
 
     /**
      * Index action
@@ -228,8 +228,12 @@ class ControllerPaymentCardGate extends Controller {
      * Control URL called by gateway
      */
     public function control() {
-
+       
         $data = $_POST;
+        if (count($data) == 0){
+            die('No callback data to verify!');
+        } 
+        
         $payment = $data['extra'];
         $this->load->language( 'payment/' . $payment );
 

@@ -38,24 +38,30 @@ function recurse_copy( $src, $dst, $is_dir ) {
     if ( $is_dir ) {
         // copy directory
         if ( is_dir( $src ) ) {
-            $dir = opendir( $src );
-            @mkdir( $dst );
-            while ( false !== ( $file = readdir( $dir )) ) {
-                if ( ( $file != '.' ) && ( $file != '..' ) ) {
-                    if ( is_dir( $src . '/' . $file ) ) {
-                        recurse_copy( $src . '/' . $file, $dst . '/' . $file );
-                    } else {
-                        copy( $src . '/' . $file, $dst . '/' . $file );
+            if ( $src != '.svn' ) {
+                $dir = opendir( $src );
+                @mkdir( $dst );
+                while ( false !== ( $file = readdir( $dir )) ) {
+                    if ( ( $file != '.' ) && ( $file != '..' ) ) {
+                        if ( is_dir( $src . '/' . $file ) ) {
+                            recurse_copy( $src . '/' . $file, $dst . '/' . $file, true );
+                        } else {
+                            if ( strpos( $file, '.DS_Store' ) === false ) {
+                                copy( $src . '/' . $file, $dst . '/' . $file );
+                            }
+                        }
                     }
                 }
+                closedir( $dir );
             }
-            closedir( $dir );
         } else {
             echo 'dir ' . $src . ' is not found!';
         }
     } else {
-        // copy file
-        copy( $src , $dst );
+        if ( strpos( $src, '.DS_Store' ) === false ) {
+            // copy file
+            copy( $src, $dst );
+        }
     }
 }
   
@@ -723,7 +729,7 @@ array_push( $data, data_element( $src, $dst, $is_dir ) );
 foreach ( $data as $k => $v ) {
         recurse_copy( $v['src'], $v['dst'], $v['isdir'] );
 }
- 
+
 // make the zip
 echo 'files copied<br>';
 
