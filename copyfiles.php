@@ -148,10 +148,6 @@ $src = '../admin/controller/payment/cardgatevpay.php';
 $dst = 'cardgate/admin/controller/payment/cardgatevpay.php';
 $is_dir = false;
 array_push( $data, data_element( $src, $dst, $is_dir ) );
-$src = '../admin/controller/payment/cardgatewebmoney.php';
-$dst = 'cardgate/admin/controller/payment/cardgatewebmoney.php';
-$is_dir = false;
-array_push( $data, data_element( $src, $dst, $is_dir ) );
 
 $src = '../admin/language/dutch/payment/cardgateafterpay.php';
 $dst = 'cardgate/admin/language/dutch/payment/cardgateafterpay.php';
@@ -217,11 +213,6 @@ $src = '../admin/language/dutch/payment/cardgatevpay.php';
 $dst = 'cardgate/admin/language/dutch/payment/cardgatevpay.php';
 $is_dir = false;
 array_push( $data, data_element( $src, $dst, $is_dir ) );
-$src = '../admin/language/dutch/payment/cardgatewebmoney.php';
-$dst = 'cardgate/admin/language/dutch/payment/cardgatewebmoney.php';
-$is_dir = false;
-array_push( $data, data_element( $src, $dst, $is_dir ) );
-
 
 $src = '../admin/language/english/payment/cardgateafterpay.php';
 $dst = 'cardgate/admin/language/english/payment/cardgateafterpay.php';
@@ -285,10 +276,6 @@ $is_dir = false;
 array_push( $data, data_element( $src, $dst, $is_dir ) );
 $src = '../admin/language/english/payment/cardgatevpay.php';
 $dst = 'cardgate/admin/language/english/payment/cardgatevpay.php';
-$is_dir = false;
-array_push( $data, data_element( $src, $dst, $is_dir ) );
-$src = '../admin/language/english/payment/cardgatewebmoney.php';
-$dst = 'cardgate/admin/language/english/payment/cardgatewebmoney.php';
 $is_dir = false;
 array_push( $data, data_element( $src, $dst, $is_dir ) );
 
@@ -359,10 +346,6 @@ $is_dir = false;
 array_push( $data, data_element( $src, $dst, $is_dir ) );
 $src = '../admin/view/template/payment/cardgatevpay.tpl';
 $dst = 'cardgate/admin/view/template/payment/cardgatevpay.tpl';
-$is_dir = false;
-array_push( $data, data_element( $src, $dst, $is_dir ) );
-$src = '../admin/view/template/payment/cardgatewebmoney.tpl';
-$dst = 'cardgate/admin/view/template/payment/cardgatewebmoney.tpl';
 $is_dir = false;
 array_push( $data, data_element( $src, $dst, $is_dir ) );
 
@@ -438,10 +421,6 @@ $src = '../catalog/controller/payment/cardgatevpay.php';
 $dst = 'cardgate/catalog/controller/payment/cardgatevpay.php';
 $is_dir = false;
 array_push( $data, data_element( $src, $dst, $is_dir ) );
-$src = '../catalog/controller/payment/cardgatewebmoney.php';
-$dst = 'cardgate/catalog/controller/payment/cardgatewebmoney.php';
-$is_dir = false;
-array_push( $data, data_element( $src, $dst, $is_dir ) );
 
 $src = '../catalog/language/dutch/payment/cardgateafterpay.php';
 $dst = 'cardgate/catalog/language/dutch/payment/cardgateafterpay.php';
@@ -505,10 +484,6 @@ $is_dir = false;
 array_push( $data, data_element( $src, $dst, $is_dir ) );
 $src = '../catalog/language/dutch/payment/cardgatevpay.php';
 $dst = 'cardgate/catalog/language/dutch/payment/cardgatevpay.php';
-$is_dir = false;
-array_push( $data, data_element( $src, $dst, $is_dir ) );
-$src = '../catalog/language/dutch/payment/cardgatewebmoney.php';
-$dst = 'cardgate/catalog/language/dutch/payment/cardgatewebmoney.php';
 $is_dir = false;
 array_push( $data, data_element( $src, $dst, $is_dir ) );
 
@@ -576,10 +551,6 @@ $src = '../catalog/language/english/payment/cardgatevpay.php';
 $dst = 'cardgate/catalog/language/english/payment/cardgatevpay.php';
 $is_dir = false;
 array_push( $data, data_element( $src, $dst, $is_dir ) );
-$src = '../catalog/language/english/payment/cardgatewebmoney.php';
-$dst = 'cardgate/catalog/language/english/payment/cardgatewebmoney.php';
-$is_dir = false;
-array_push( $data, data_element( $src, $dst, $is_dir ) );
 
 $src = '../catalog/model/payment/cardgateafterpay.php';
 $dst = 'cardgate/catalog/model/payment/cardgateafterpay.php';
@@ -645,10 +616,6 @@ $src = '../catalog/model/payment/cardgatevpay.php';
 $dst = 'cardgate/catalog/model/payment/cardgatevpay.php';
 $is_dir = false;
 array_push( $data, data_element( $src, $dst, $is_dir ) );
-$src = '../catalog/model/payment/cardgatewebmoney.php';
-$dst = 'cardgate/catalog/model/payment/cardgatewebmoney.php';
-$is_dir = false;
-array_push( $data, data_element( $src, $dst, $is_dir ) );
 
 $src = '../catalog/view/theme/default/template/payment/cardgateafterpay.tpl';
 $dst = 'cardgate/catalog/view/theme/default/template/payment/cardgateafterpay.tpl';
@@ -712,10 +679,6 @@ $is_dir = false;
 array_push( $data, data_element( $src, $dst, $is_dir ) );
 $src = '../catalog/view/theme/default/template/payment/cardgatevpay.tpl';
 $dst = 'cardgate/catalog/view/theme/default/template/payment/cardgatevpay.tpl';
-$is_dir = false;
-array_push( $data, data_element( $src, $dst, $is_dir ) );
-$src = '../catalog/view/theme/default/template/payment/cardgatewebmoney.tpl';
-$dst = 'cardgate/catalog/view/theme/default/template/payment/cardgatewebmoney.tpl';
 $is_dir = false;
 array_push( $data, data_element( $src, $dst, $is_dir ) );
 
