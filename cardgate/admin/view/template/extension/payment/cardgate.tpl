@@ -73,16 +73,6 @@
                                     <?php } ?>
                                 </div>
                             </div>
-
-                            <div class="form-group required">
-                                <label class="col-sm-2 control-label" for="entry-hash-key"><span data-toggle="tooltip" title="<?php echo $text_hash_key; ?>"><?php echo $entry_hash_key; ?></span></label>
-                                <div class="col-sm-10">
-                                    <input type="text" name="cardgate_hash_key" value="<?php echo $cardgate_hash_key; ?>" id="entry-hash-key" class="form-control" />
-                                    <?php if ($error_hash_key) { ?>
-                                    <div class="text-danger"><?php echo $error_hash_key; ?></div>
-                                    <?php } ?>
-                                </div>
-                            </div>
                             <div class="form-group required">
                                 <label class="col-sm-2 control-label" for="entry-merchant-id"><span data-toggle="tooltip" title="<?php echo $text_merchant_id; ?>"><?php echo $entry_merchant_id; ?></span></label>
                                 <div class="col-sm-10">

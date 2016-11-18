@@ -43,7 +43,6 @@ $_['text_set_order_status']  = 'Set Order Status';
 $_['text_author']            = '<a href="http://www.cardgate.com/" target="_blank">www.cardgate.com</a>';
 $_['text_test_mode_help']    = 'Switching between test and live mode. If you don\'t have an account, sign up at http://www.cardgate.com/" .';
 $_['text_site_id']           = 'Fill in you Site ID number. You can find your Site ID number at your CardGate Merchant Backoffice.';
-$_['text_hash_key']          = 'Fill in you secret hash key for the site. You can create your hash key code at your CardGate Merchant Backoffice.';
 $_['text_gateway_language']  = 'Setting a default language interface of the gateway.';
 $_['text_order_description'] = 'Payment description that will be shown to the customer in the gateway screen. Variables: <b>%id%</b> = Order ID';
 $_['text_total']             = 'The checkout total the order must reach before this payment method becomes active.';
@@ -54,7 +53,6 @@ $_['text_author']            = 'Author:';
 // Entry
 $_['entry_test_mode']         = 'Test/Live Mode:';
 $_['entry_site_id']           = 'Site ID:';
-$_['entry_hash_key']          = 'Hash Key:';
 $_['entry_payment_methods']   = 'Payment methods:';
 $_['entry_gateway_language']  = 'Gateway Language:';
 $_['entry_order_description'] = 'Order Description:';
@@ -74,5 +72,4 @@ $_['entry_author']           = '<a href="http_//www.cardgate.com">cardgate</a>';
 // Error
 $_['error_permission']       = 'Warning: You do not have permission to modify payment Card Gate Plus!';
 $_['error_site_id']          = 'Site ID Required.';
-$_['error_hash_key']         = 'Hash Key Required.';
 $_['error_payment_method']   = 'Please select at least one payment method.';

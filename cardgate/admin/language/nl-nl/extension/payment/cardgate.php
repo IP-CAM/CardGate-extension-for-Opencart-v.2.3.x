@@ -44,7 +44,7 @@ $_['text_set_order_status']  = 'Stel Order Status in';
 $_['text_author']            = '<a href="http://www.cardgate.com/" target="_blank">www.cardgate.com</a>';
 $_['text_test_mode_help']    = 'U gaat nu van test naar live modus. Indien u geen account heeft, schrijf u dan in bij http://www.cardgate.com/ .';
 $_['text_site_id']           = 'Vul hier uw Site ID in. Deze kunt u vinden in de Cardgate Merchant Backoffice.';
-$_['text_hash_key']          = 'Vul hier uw Codeer Sleutel in. Deze kunt u instellen in de Cardgate Merchant Backoffice.';
+
 $_['text_merchant_id']       = 'Vul hier uw Merchant ID in. Deze kunt u vinden in de Cardgate Merchant Backoffice.';
 $_['text_api_key']           = 'Vul hier uw Merchant API Key in . Dit heeft u gekregen van uw account manager';
 $_['text_gateway_language']  = 'Stel een standaard taal in voor de gateway.';
@@ -57,7 +57,6 @@ $_['text_author']            = 'Auteur:';
 // Entry
 $_['entry_test_mode']         = 'Test/Live Modus:';
 $_['entry_site_id']           = 'Site ID:';
-$_['entry_hash_key']          = 'Codeer Sleutel:';
 $_['entry_merchant_id']       = 'Merchant ID:';
 $_['entry_api_key']           = 'Merchant API Key:';
 $_['entry_payment_title']     = 'Titel:';
@@ -79,7 +78,6 @@ $_['entry_author']           = '<a href="http_//www.cardgate.com">cardgate</a>';
 // Error
 $_['error_permission']       = 'Waarschuwing: U heeft geen toestemming om de betaal methode Card Gate Plus te wijzigen!';
 $_['error_site_id']          = 'Site ID Vereist!';
-$_['error_hash_key']         = 'Codeer Sleutel Vereist!';
 $_['error_merchant_id']      = 'Merchant ID Vereist!';
 $_['error_api_key']          = 'Merchant API Key Vereist!';
 $_['error_payment_method']   = 'Selecteer minimaal een betaal methode.';
