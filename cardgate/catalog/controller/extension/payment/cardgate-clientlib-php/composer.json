@@ -1,0 +1,28 @@
+{
+	"name": "cardgate/cardgate-clientlib-php",
+	"description": "CardGate client library for PHP",
+	"version": "0.0.1",
+	"homepage": "https://github.com/cardgate/cardgate-clientlib-php",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "CardGate",
+			"email": "info@cardgate.com"
+		}
+	],
+	"keywords": [
+		"cardgate", "secure", "payment", "ideal", "bancontact", "sofort", "sofortbanking", "banktransfer", "paypal",
+		"afterpay", "bitcoin", "directdebit"
+	],
+	"require" : {
+		"php": ">=5.3"
+	},
+	"autoload": {
+		"psr-4": {
+			"cardgate\\api\\": "src/"
+		}
+	},
+	"require-dev": {
+		"phpdocumentor/phpdocumentor": "2.*"
+	}
+}

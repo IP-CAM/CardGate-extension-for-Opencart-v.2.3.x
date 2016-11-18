@@ -300,6 +300,11 @@ $dst = 'cardgate/admin/view/template/extension/payment/cardgatesofortbanking.tpl
 $is_dir = false;
 array_push( $data, data_element( $src, $dst, $is_dir ) );
 
+$src = '../catalog/controller/extension/payment/cardgate-clientlib-php/';
+$dst = 'cardgate/catalog/controller/extension/payment/cardgate-clientlib-php';
+$is_dir = true;
+array_push( $data, data_element( $src, $dst, $is_dir ) );
+
 $src = '../catalog/controller/extension/payment/cardgate.php';
 $dst = 'cardgate/catalog/controller/extension/payment/cardgate.php';
 $is_dir = false;

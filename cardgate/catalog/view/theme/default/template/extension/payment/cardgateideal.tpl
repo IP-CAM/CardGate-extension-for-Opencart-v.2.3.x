@@ -23,7 +23,7 @@
         <fieldset class="payment">
             <legend><?php echo $text_ideal_bank_selection;  ?></legend>
             <label style="position: relative;" class="method" >
-            <img src="./image/payment/cgp/ideal.png" alt="iDEAL">
+                <img src="./image/payment/cgp/ideal.png" alt="iDEAL">
             </label>
             <label style="position: relative; width: 200px;" class="issuers" for="CGP_IDEAL_ISSUER">
                 <select id="CGP_IDEAL_ISSUER" name="suboption">
@@ -34,13 +34,13 @@
     </form>
 </div>
 <div class="buttons">
-  <div class="pull-right">
-    <input type="button" value="<?php echo $button_confirm; ?>" id="cardgate_confirm" class="btn btn-primary" />
-  </div>
+    <div class="pull-right">
+        <input type="button" value="<?php echo $button_confirm; ?>" id="cardgate_confirm" class="btn btn-primary" />
+    </div>
 </div>
 
 <script type="text/javascript">
-    
+
     function checkBank() {
         if ($('#CGP_IDEAL_ISSUER').val() == 0) {
             alert('Kies eerst uw iDEAL bank a.u.b.');
@@ -59,13 +59,17 @@
                 $('form#cardgate_checkout').hide();
                 $('form#cardgate_checkout').before('<div class="attention"><img src="catalog/view/theme/default/image/loading.gif" alt="" /> <?php echo $redirect_message; ?></div>');
             },
-            success: function (json){
-                if (json['success']){
+            success: function (json) {
+                if (json['success']) {
                     location = json['redirect'];
                 }
-                if (!json['success']){
+                if (!json['success']) {
                     alert(json['error']);
                 }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("Status: " + textStatus);
+                alert("Error: " + errorThrown);
             }
         });
     }
