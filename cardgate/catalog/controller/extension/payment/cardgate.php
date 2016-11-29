@@ -17,7 +17,7 @@
  * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 class ControllerExtensionPaymentCardGate extends Controller {
-
+    var $version = '2.3.0';
     /**
      * Index action
      */
@@ -55,11 +55,17 @@ class ControllerExtensionPaymentCardGate extends Controller {
             $amount = ( int ) round( $order_info['total'] * $order_info['currency_value'] * 100, 0 );
             $currency = strtoupper( $order_info['currency_code'] );
             $option = substr( $payment, 8 );
-            
-            $oCardGate = new cardgate\api\Client( (int)$this->config->get( 'cardgate_merchant_id' ), $this->config->get( 'cardgate_api_key' ), ($this->config->get( 'cardgate_test_mode' ) == 'test' ? TRUE : FALSE) );
+
+            $oCardGate = new cardgate\api\Client( ( int ) $this->config->get( 'cardgate_merchant_id' ), $this->config->get( 'cardgate_api_key' ), ($this->config->get( 'cardgate_test_mode' ) == 'test' ? TRUE : FALSE ) );
             $oCardGate->setIp( $_SERVER['REMOTE_ADDR'] );
-            $iSiteId = (int)$this->config->get( 'cardgate_site_id' );
+            $oCardGate->setLanguage( $this->language->get('code'));
+            $oCardGate->version()->setPlatformName( 'Opencart' );
+            $oCardGate->version()->setPlatformVersion( VERSION );
+            $oCardGate->version()->setPluginName( 'Opencart_CardGate' );
+            $oCardGate->version()->setPluginVersion( $this->version );
             
+            $iSiteId = ( int ) $this->config->get( 'cardgate_site_id' );
+
             $oTransaction = $oCardGate->transactions()->create( $iSiteId, $amount, $currency );
 
             // Configure payment option.
@@ -119,7 +125,7 @@ class ControllerExtensionPaymentCardGate extends Controller {
                 $price_wt = round( $this->tax->calculate( $product['price'], $product['tax_class_id'], TRUE ) * 100, 0 );
                 $vat = $this->tax->getTax( $price, $product['tax_class_id'] );
                 $vat_perc = round( $vat / $product['price'], 2 );
-                $vat_per_item = round($price_wt - $price,0);
+                $vat_per_item = round( $price_wt - $price, 0 );
                 $oItem = $oCart->addItem( \cardgate\api\Item::TYPE_PRODUCT, $product['model'], $product['name'], $product['quantity'], $price_wt );
                 $oItem->setVat( $vat_perc );
                 $oItem->setVatAmount( $vat_per_item );
@@ -205,16 +211,16 @@ class ControllerExtensionPaymentCardGate extends Controller {
             $oTransaction->setReference( $order_info['order_id'] );
             $oTransaction->setDescription( str_replace( '%id%', $order_info['order_id'], $this->config->get( 'cardgate_order_description' ) ) );
             $oTransaction->register();
-            
+
             $sActionUrl = $oTransaction->getActionUrl();
 
             if ( NULL !== $sActionUrl ) {
-                
+
                 $json['success'] = true;
                 $json['redirect'] = trim( $sActionUrl );
                 $this->load->language( 'extension/payment/cardgate' );
                 $this->load->model( 'checkout/order' );
-                
+
                 $initializedStatus = $this->config->get( 'cardgate_payment_initialized_status' );
                 $comment = $this->language->get( 'text_payment_initialized' );
                 $this->model_checkout_order->addOrderHistory( $this->session->data['order_id'], $initializedStatus, $comment );
@@ -226,10 +232,9 @@ class ControllerExtensionPaymentCardGate extends Controller {
             $json['success'] = false;
             $json['error'] = 'CardGate error: ' . htmlspecialchars( $oException_->getMessage() );
         }
-            
+
         $this->response->addHeader( 'Content-Type: application/json' );
         $this->response->setOutput( json_encode( $json ) );
-        
     }
 
     /**
@@ -255,18 +260,18 @@ class ControllerExtensionPaymentCardGate extends Controller {
     public function control() {
 
         $data = $_REQUEST;
-        
-       // mail('richard@cardgate.com','data', print_r(array_values($data),true));
+
+        // mail('richard@cardgate.com','data', print_r(array_values($data),true));
 
         try {
 
             include 'cardgate-clientlib-php/init.php';
-            $sSiteKey = $this->config->get( 'cardgate_api_key' );
-            
-            $oCardGate = new cardgate\api\Client( (int)$this->config->get( 'cardgate_merchant_id' ), $this->config->get( 'cardgate_api_key' ), ($this->config->get( 'cardgate_test_mode' ) == 'test' ? TRUE : FALSE) );
+            $sSiteKey = $this->config->get( 'cardgate_hash_key' );
+
+            $oCardGate = new cardgate\api\Client( ( int ) $this->config->get( 'cardgate_merchant_id' ), $this->config->get( 'cardgate_api_key' ), ($this->config->get( 'cardgate_test_mode' ) == 'test' ? TRUE : FALSE ) );
             $oCardGate->setIp( $_SERVER['REMOTE_ADDR'] );
-            
-            if ( FALSE == $oCardGate->transactions()->verifyCallback( $data, $sSiteKey) ) {
+
+            if ( FALSE == $oCardGate->transactions()->verifyCallback( $data, $sSiteKey ) ) {
                 $store_name = $this->config->get( 'config_name' );
                 $mail = new Mail();
                 $mail->protocol = $this->config->get( 'config_mail_protocol' );
@@ -290,7 +295,9 @@ class ControllerExtensionPaymentCardGate extends Controller {
                 $complete_status = $this->config->get( 'cardgate_payment_complete_status' );
                 $comment = '';
 
-                if ( $data['code'] == '0' || ($data['code'] > '700' && $data['code'] <= '710') ) {
+                $waiting = false;
+                if ( $data['code'] == '0' || ($data['code'] >= '700' && $data['code'] <= '710') ) {
+                    $waiting = true;
                     $status = $this->config->get( 'cardgate_payment_initialized_status' );
                     $this->language->get( 'text_payment_initialized' );
                     switch ( $data['code'] ) {
@@ -323,7 +330,7 @@ class ControllerExtensionPaymentCardGate extends Controller {
                 $comment .= '  ' . $this->language->get( 'text_transaction_nr' );
                 $comment .= ' ' . $data['transaction'];
 
-                if ( $order['order_status_id'] != $status && $order['order_status_id'] != $complete_status ) {
+                if ( ($order['order_status_id'] != $status && $order['order_status_id'] != $complete_status) || ($waiting = true && $order['order_status_id'] != $complete_status) ) {
                     $this->model_checkout_order->addOrderHistory( $order['order_id'], $status, $comment, true );
                 }
 
@@ -343,10 +350,10 @@ class ControllerExtensionPaymentCardGate extends Controller {
         try {
 
             include 'cardgate-clientlib-php/init.php';
-            
-            $oCardGate = new cardgate\api\Client( (int)$this->config->get( 'cardgate_merchant_id' ), $this->config->get( 'cardgate_api_key' ), ($this->config->get( 'cardgate_test_mode' ) == 'test' ? TRUE : FALSE) );
+
+            $oCardGate = new cardgate\api\Client( ( int ) $this->config->get( 'cardgate_merchant_id' ), $this->config->get( 'cardgate_api_key' ), ($this->config->get( 'cardgate_test_mode' ) == 'test' ? TRUE : FALSE ) );
             $oCardGate->setIp( $_SERVER['REMOTE_ADDR'] );
-            
+
             $aIssuers = $oCardGate->methods()->get( cardgate\api\Method::IDEAL )->getIssuers();
         } catch ( cardgate\api\Exception $oException_ ) {
             $aIssuers[0] = ['id' => 0, 'name' => htmlspecialchars( $oException_->getMessage() ) ];
@@ -358,12 +365,13 @@ class ControllerExtensionPaymentCardGate extends Controller {
         }
         return $options;
     }
-    
-    public function returnJson($message){
+
+    public function returnJson( $message ) {
         $json = array();
         $json['success'] = false;
         $json['error'] = $message;
         $this->response->addHeader( 'Content-Type: application/json' );
         $this->response->setOutput( json_encode( $json ) );
     }
+
 }

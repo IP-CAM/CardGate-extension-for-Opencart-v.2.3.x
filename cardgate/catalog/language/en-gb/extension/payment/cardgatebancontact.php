@@ -17,7 +17,7 @@
  */
 
 // Text
-$_['text_title']                    = 'MisterCash';
+$_['text_title']                    = 'Bancontact';
 $_['text_redirect_message']         = 'You will be shortly redirected to CardGate to finish your payment.';
 $_['text_payment_initialized']      = 'Transaction started, waiting for payment.';
 $_['text_payment_complete']         = 'Payment complete.';

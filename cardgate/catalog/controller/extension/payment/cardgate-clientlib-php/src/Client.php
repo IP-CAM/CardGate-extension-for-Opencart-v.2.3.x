@@ -83,6 +83,13 @@ namespace cardgate\api {
 		private $_sLanguage = NULL;
 
 		/**
+		 * The version resource.
+		 * @var resource\Version
+		 * @access private
+		 */
+		private $_oVersion = NULL;
+
+		/**
 		 * The transactions resource.
 		 * @var resource\Transactions
 		 * @access private
@@ -268,6 +275,19 @@ namespace cardgate\api {
 		}
 
 		/**
+		 * Accessor for the versioning resource.
+		 * @return resource\Version
+		 * @access public
+		 * @api
+		 */
+		public function version() {
+			if ( NULL == $this->_oVersion ) {
+				$this->_oVersion = new resource\Version();
+			}
+			return $this->_oVersion;
+		}
+
+		/**
 		 * Accessor for the transactions resource.
 		 * @return resource\Transactions
 		 * @access public
@@ -347,6 +367,10 @@ namespace cardgate\api {
 				$aData_ = [ 'ip' => $this->getIp(), 'language_id' => $this->getLanguage() ];
 			} else {
 				throw new Exception( 'Client.Data.Invalid', 'invalid data: ' . $aData_ );
+			}
+
+			if ( NULL !== $this->_oVersion ) {
+				$aData_ = array_merge( $aData_, $this->_oVersion->getData() );
 			}
 
 			$rCh = curl_init();

@@ -18,8 +18,8 @@
 ?>
 <div class="buttons">
     <form action="" method="POST" id="cardgate_checkout">
-        <input type="hidden" name="option" value="mistercash" />
-        <img src="./image/payment/cgp/mistercash.png" alt="MisterCash">
+        <input type="hidden" name="option" value="bancontact" />
+        <img src="./image/payment/cgp/bancontact.png" alt="Bancontact">
     </form>
 </div>
 <div class="buttons">
@@ -34,7 +34,7 @@
     function redirectClient(response) {
         $.ajax({
             type: 'GET',
-            url: 'index.php?route=extension/payment/cardgatemistercash/confirm',
+            url: 'index.php?route=extension/payment/cardgatebancontact/confirm',
             beforeSend: function () {
                 $('form#cardgate_checkout').hide();
                 $('form#cardgate_checkout').before('<div class="attention"><img src="catalog/view/theme/default/image/loading.gif" alt="" /> <?php echo $redirect_message; ?></div>');

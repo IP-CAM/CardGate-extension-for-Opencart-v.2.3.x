@@ -17,16 +17,16 @@
  */
 
 // Heading
-$_['heading_title']          = 'Cardgate MisterCash';
+$_['heading_title']          = 'Cardgate Bancontact';
 
 // Text 
 $_['text_general']           = 'Algemeen';
 $_['text_order_status']      = 'Order Status';
 $_['text_info']              = 'Info';
 $_['text_payment']           = 'Betaling';
-$_['text_success']           = 'Gelukt: U heeft uw Cardgate MisterCash instellingen gewijzigd!';
-$_['text_cardgateplus']      = '<a onclick="window.open(\'http://www.cardgate.com/\');"><img src="view/image/payment/cardgateplus.png" alt="Cardate MisterCash" title="Cardgate MisterCash" style="border: 1px solid #EEEEEE;" /></a>';
-$_['text_cardgatemistercash']  = $_['text_cardgateplus'];
+$_['text_success']           = 'Gelukt: U heeft uw Cardgate Bancontact instellingen gewijzigd!';
+$_['text_cardgateplus']      = '<a onclick="window.open(\'http://www.cardgate.com/\');"><img src="view/image/payment/cardgateplus.png" alt="Cardate Bancontact" title="Cardgate Bancontact" style="border: 1px solid #EEEEEE;" /></a>';
+$_['text_cardgatebancontact']  = $_['text_cardgateplus'];
 $_['text_test_mode']         = 'Test mode';
 $_['text_live_mode']         = 'Live mode';
 $_['text_language_dutch']    = 'Nederlands';

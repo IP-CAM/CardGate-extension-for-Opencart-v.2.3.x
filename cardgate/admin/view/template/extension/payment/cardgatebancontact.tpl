@@ -20,7 +20,7 @@
     <div class="page-header">
         <div class="container-fluid">
             <div class="pull-right">
-                <button type="submit" form="form-cardgatemistercash" data-toggle="tooltip" title="<?php echo $button_save; ?>" class="btn btn-primary"><i class="fa fa-save"></i></button>
+                <button type="submit" form="form-cardgatebancontact" data-toggle="tooltip" title="<?php echo $button_save; ?>" class="btn btn-primary"><i class="fa fa-save"></i></button>
                 <a href="<?php echo $cancel; ?>" data-toggle="tooltip" title="<?php echo $button_cancel; ?>" class="btn btn-default"><i class="fa fa-reply"></i></a> </div>
             <h1><?php echo $heading_title; ?></h1>
             <ul class="breadcrumb">
@@ -41,7 +41,7 @@
                 <h3 class="panel-title"><i class="fa fa-pencil"></i> <?php echo 'Edit '.$heading_title; ?><br /><br /></h3>
             </div>
             <div class="panel-body">
-                <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" id="form-cardgatemistercash" class="form-horizontal">
+                <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" id="form-cardgatebancontact" class="form-horizontal">
                     <ul class="nav nav-tabs">
                         <li class="active"><a href="#tab-general" data-toggle="tab"><?php echo $text_general; ?></a></li>
                         <li><a href="#tab-status" data-toggle="tab"><?php echo $text_order_status; ?></a></li>
@@ -52,17 +52,17 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label" for="entry-total"><span data-toggle="tooltip" title="<?php echo $text_total; ?>"><?php echo $entry_total; ?></span></label>
                                 <div class="col-sm-10">
-                                    <input type="text" name="cardgatemistercash_total" value="<?php echo $cardgatemistercash_total; ?>" id="entry-total" class="form-control"/>
+                                    <input type="text" name="cardgatebancontact_total" value="<?php echo $cardgatebancontact_total; ?>" id="entry-total" class="form-control"/>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label class="col-sm-2 control-label" for="entry-geo-zone-id"><?php echo $entry_geo_zone; ?></label>
                                 <div class="col-sm-10">
-                                    <select name="cardgatemistercash_geo_zone_id" id="entry-geo-zone-id" class="form-control">
+                                    <select name="cardgatebancontact_geo_zone_id" id="entry-geo-zone-id" class="form-control">
                                         <option value="0"><?php echo $text_all_zones; ?></option>
                                         <?php foreach ($geo_zones as $geo_zone) { ?>
-                                        <?php if ($geo_zone['geo_zone_id'] == $cardgatemistercash_geo_zone_id) { ?>
+                                        <?php if ($geo_zone['geo_zone_id'] == $cardgatebancontact_geo_zone_id) { ?>
                                         <option value="<?php echo $geo_zone['geo_zone_id']; ?>" selected="selected"><?php echo $geo_zone['name']; ?></option>
                                         <?php } else { ?>
                                         <option value="<?php echo $geo_zone['geo_zone_id']; ?>"><?php echo $geo_zone['name']; ?></option>
@@ -74,8 +74,8 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label" for="entry-plugin-status"><?php echo $entry_plugin_status; ?></label>
                                 <div class="col-sm-10">
-                                    <select name="cardgatemistercash_status" id="entry-plugin-status" class="form-control">
-                                        <?php if ($cardgatemistercash_status): ?>
+                                    <select name="cardgatebancontact_status" id="entry-plugin-status" class="form-control">
+                                        <?php if ($cardgatebancontact_status): ?>
                                         <option value="1" selected="selected"><?php echo $text_enabled; ?></option>
                                         <option value="0"><?php echo $text_disabled; ?></option>
                                         <?php else: ?>
@@ -90,7 +90,7 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label" for="entry-sort-order"><?php echo $entry_sort_order; ?></label>
                                 <div class="col-sm-10">
-                                    <input type="text" name="cardgatemistercash_sort_order" value="<?php echo $cardgatemistercash_sort_order; ?>" id="entry-sort-order" class="form-control"/>
+                                    <input type="text" name="cardgatebancontact_sort_order" value="<?php echo $cardgatebancontact_sort_order; ?>" id="entry-sort-order" class="form-control"/>
                                 </div>
                             </div>
                         </div>
@@ -98,7 +98,7 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label"><?php echo $text_plugin_version; ?></label>
                                 <div class="col-sm-10">
-                                    <input type="text" name="cardgatemistercash-plugin-version" value="<?php echo $entry_plugin_version;?>" class="form-control" /> 
+                                    <input type="text" name="cardgatebancontact-plugin-version" value="<?php echo $entry_plugin_version;?>" class="form-control" /> 
                                 </div>
                             </div>
                             <div class="form-group">

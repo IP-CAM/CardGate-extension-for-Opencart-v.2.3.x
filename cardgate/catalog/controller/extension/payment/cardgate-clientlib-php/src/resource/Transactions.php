@@ -88,13 +88,14 @@ namespace cardgate\api\resource {
 		/**
 		 * This method can be used to verify a callback for a transaction.
 		 * @param Array $aData_ The callback data (usually $_GET) to use for verification.
-		 * @param String $sSiteKey_ The site key used to verify hash.
+		 * @param String $sSiteKey_ The site key used to verify hash. Leave empty to check hash with the
+		 * use of the merchant key only (otherwise both are checked).
 		 * @return Boolean Returns TRUE if the callback is valid or FALSE if not.
 		 * @throws Exception
 		 * @access public
 		 * @api
 		 */
-		public function verifyCallback( $aData_, $sSiteKey_ ) {
+		public function verifyCallback( $aData_, $sSiteKey_ = NULL ) {
 			foreach( [ 'transaction', 'currency', 'amount', 'reference', 'code', 'hash', 'status' ] as $sRequiredKey ) {
 				if ( ! isset( $aData_[$sRequiredKey] ) ) {
 					throw new \cardgate\api\Exception( 'Transaction.Callback.Missing', 'missing callback data: ' . $sRequiredKey );
@@ -104,16 +105,29 @@ namespace cardgate\api\resource {
 			if ( ! empty( $aData_['testmode'] ) ) {
 				$sPrefix = 'TEST';
 			}
-			$sHashVerify = md5(
-				$sPrefix
-				. $aData_['transaction']
-				. $aData_['currency']
-				. $aData_['amount']
-				. $aData_['reference']
-				. $aData_['code']
-				. $sSiteKey_
+			return (
+				(
+					NULL !== $sSiteKey_
+					&& md5(
+						$sPrefix
+						. $aData_['transaction']
+						. $aData_['currency']
+						. $aData_['amount']
+						. $aData_['reference']
+						. $aData_['code']
+						. $sSiteKey_
+					) == $aData_['hash']
+				)
+				|| md5(
+					$sPrefix
+					. $aData_['transaction']
+					. $aData_['currency']
+					. $aData_['amount']
+					. $aData_['reference']
+					. $aData_['code']
+					. $this->_oClient->getKey()
+				) == $aData_['hash']
 			);
-			return $sHashVerify == $aData_['hash'];
 		}
 
 	}

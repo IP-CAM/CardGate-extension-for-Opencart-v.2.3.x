@@ -17,7 +17,7 @@
  */
 
 // Text
-$_['text_title']                = 'MisterCash';
+$_['text_title']                = 'Bancontact';
 $_['text_redirect_message']     = 'U zult worden doorgestuurd naar CardGate, onze Payment Service Provider';
 $_['text_payment_initialized']  = 'Transactie gestart, wacht op bevestiging.';
 $_['text_payment_complete']     = 'Betaling succesvol.';

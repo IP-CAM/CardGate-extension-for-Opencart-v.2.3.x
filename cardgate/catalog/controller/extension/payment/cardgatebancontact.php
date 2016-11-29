@@ -18,13 +18,13 @@
  */
 include 'cardgate.php';
 
-class ControllerExtensionPaymentCardGateMisterCash extends ControllerExtensionPaymentCardGate {
+class ControllerExtensionPaymentCardGateBancontact extends ControllerExtensionPaymentCardGate {
 
      public function index() {
-         return $this->_index('cardgatemistercash');
+         return $this->_index('cardgatebancontact');
      }
      
      public function confirm() {
-         $this->_confirm('cardgatemistercash');
+         $this->_confirm('cardgatebancontact');
      }
 }

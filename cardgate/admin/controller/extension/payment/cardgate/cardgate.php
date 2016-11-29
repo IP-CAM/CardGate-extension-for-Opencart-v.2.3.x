@@ -23,7 +23,7 @@ class ControllerExtensionPaymentCardGatePlusGeneric extends Controller {
     public function _index( $payment ) {
 
         //update version also in catalog/controller/payment/cardgate/cardgate.php
-        $version = '2.1.9';
+        $version = '2.3.0';
          
         $this->load->language( 'extension/payment/' . $payment );
         $this->document->setTitle( $this->language->get( 'heading_title' ) );
@@ -63,6 +63,7 @@ class ControllerExtensionPaymentCardGatePlusGeneric extends Controller {
         $data['text_author'] = $this->language->get( 'text_author' );
         $data['text_test_mode_help'] = $this->language->get( 'text_test_mode_help' );
         $data['text_site_id'] = $this->language->get( 'text_site_id' );
+        $data['text_hash_key'] = $this->language->get( 'text_hash_key' );
         $data['text_merchant_id'] = $this->language->get( 'text_merchant_id' );
         $data['text_api_key'] = $this->language->get( 'text_api_key' );
         $data['text_gateway_language'] = $this->language->get( 'text_gateway_language' );
@@ -76,6 +77,7 @@ class ControllerExtensionPaymentCardGatePlusGeneric extends Controller {
 
         $data['entry_test_mode'] = $this->language->get( 'entry_test_mode' );
         $data['entry_site_id'] = $this->language->get( 'entry_site_id' );
+        $data['entry_hash_key'] = $this->language->get( 'entry_hash_key' );
         $data['entry_merchant_id'] = $this->language->get( 'entry_merchant_id' );
         $data['entry_api_key'] = $this->language->get( 'entry_api_key' );
         
@@ -150,6 +152,12 @@ class ControllerExtensionPaymentCardGatePlusGeneric extends Controller {
             $data[$payment . '_site_id'] = $this->request->post[$payment . '_site_id'];
         } else {
             $data[$payment . '_site_id'] = $this->config->get( $payment . '_site_id' );
+        }
+        
+        if ( isset( $this->request->post[$payment . '_hash_key'] ) ) {
+            $data[$payment . '_hash_key'] = $this->request->post[$payment . '_hash_key'];
+        } else {
+            $data[$payment . '_hash_key'] = $this->config->get( $payment . '_hash_key' );
         }
         
         if ( isset( $this->request->post[$payment . '_merchant_id'] ) ) {

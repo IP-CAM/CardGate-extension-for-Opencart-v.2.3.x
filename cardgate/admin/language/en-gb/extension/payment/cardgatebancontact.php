@@ -17,15 +17,15 @@
  */
 
 // Heading
-$_['heading_title']          = 'Cardgate MisterCash';
+$_['heading_title']          = 'Cardgate Bancontact';
 
 // Text 
 $_['text_general']           = 'General';
 $_['text_order_status']      = 'Order Status';
 $_['text_info']              = 'Info';
 $_['text_payment']           = 'Payment';
-$_['text_success']           = 'Success: You have modified Cardgate MisterCash account details!';
-$_['text_cardgatemistercash'] = '<a onclick="window.open(\'http://www.cardgate.com/\');"><img src="view/image/payment/cardgateplus.png" alt="Cardgate MisterCash" title="Cardgate MisterCash" style="border: 1px solid #EEEEEE;" /></a>';
+$_['text_success']           = 'Success: You have modified Cardgate Bancontact account details!';
+$_['text_cardgatebancontact'] = '<a onclick="window.open(\'http://www.cardgate.com/\');"><img src="view/image/payment/cardgateplus.png" alt="Cardgate Bancontact" title="Cardgate Bancontact" style="border: 1px solid #EEEEEE;" /></a>';
 $_['text_test_mode']         = 'Test mode';
 $_['text_live_mode']         = 'Live mode';
 $_['text_language_dutch']    = 'Dutch';
@@ -42,7 +42,8 @@ $_['text_language_swedish']  = 'Swedish';
 $_['text_set_order_status']  = 'Set Order Status';
 $_['text_author']            = '<a href="http://www.cardgate.com/" target="_blank">www.cardgate.com</a>';
 $_['text_test_mode_help']    = 'Switching between test and live mode. If you don\'t have an account, sign up at http://www.cardgate.com/" .';
-$_['text_site_id']           = 'Fill in you Site ID number. You can find your Site ID number at your CardGate Merchant Backoffice.';
+$_['text_site_id']           = 'Fill in your Site ID number. You can find your Site ID number at your CardGate Merchant Backoffice.';
+$_['text_hash_key']          = 'Fill in your Hashkey number. You can find your Site ID number at your CardGate Merchant Backoffice.';
 $_['text_gateway_language']  = 'Setting a default language interface of the gateway.';
 $_['text_order_description'] = 'Payment description that will be shown to the customer in the gateway screen. Variables: <b>%id%</b> = Order ID';
 $_['text_total']             = 'The checkout total the order must reach before this payment method becomes active.';

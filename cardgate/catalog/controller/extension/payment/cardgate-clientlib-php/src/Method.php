@@ -73,6 +73,36 @@ namespace cardgate\api {
 		const BANKTRANSFER = 'banktransfer';
 
 		/**
+		 * Bitcoins.
+		 */
+		const BITCOIN = 'bitcoin';
+
+		/**
+		 * DirectDebit.
+		 */
+		const DIRECTDEBIT = 'directdebit';
+
+		/**
+		 * Klarna.
+		 */
+		const KLARNA = 'klarna';
+
+		/**
+		 * PayPal.
+		 */
+		const PAYPAL = 'paypal';
+
+		/**
+		 * Przelewy24.
+		 */
+		const PRZELEWY24 = 'przelewy24';
+
+		/**
+		 * SofortBanking.
+		 */
+		const SOFORTBANKING = 'sofortbanking';
+
+		/**
 		 * The client associated with this payment method.
 		 * @var Client
 		 * @access private
