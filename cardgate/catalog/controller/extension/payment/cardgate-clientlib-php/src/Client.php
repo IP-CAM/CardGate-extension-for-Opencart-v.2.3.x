@@ -354,8 +354,6 @@ namespace cardgate\api {
 			}
 
 			$sUrl = $this->getUrl() . $sResource_;
-			$sUrl = 'https://bob.api.curopayments.dev/rest/v1/curo/' . $sResource_;
-
 			if ( is_array( $aData_ ) ) {
 				$aData_['ip'] = $this->getIp();
 				$aData_['language_id'] = $this->getLanguage();

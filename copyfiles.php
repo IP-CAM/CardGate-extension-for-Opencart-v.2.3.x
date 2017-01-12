@@ -533,6 +533,10 @@ $src = '../catalog/view/theme/default/template/extension/payment/cardgatebitcoin
 $dst = 'cardgate/catalog/view/theme/default/template/extension/payment/cardgatebitcoin.tpl';
 $is_dir = false;
 array_push( $data, data_element( $src, $dst, $is_dir ) );
+$src = '../catalog/view/theme/default/template/extension/payment/cardgatecreditcard.tpl';
+$dst = 'cardgate/catalog/view/theme/default/template/extension/payment/cardgatecreditcard.tpl';
+$is_dir = false;
+array_push( $data, data_element( $src, $dst, $is_dir ) );
 $src = '../catalog/view/theme/default/template/extension/payment/cardgatedirectdebit.tpl';
 $dst = 'cardgate/catalog/view/theme/default/template/extension/payment/cardgatedirectdebit.tpl';
 $is_dir = false;

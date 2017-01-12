@@ -17,7 +17,7 @@
  * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 class ControllerExtensionPaymentCardGate extends Controller {
-    var $version = '2.3.0';
+    var $version = '2.3.1';
     /**
      * Index action
      */
@@ -118,8 +118,7 @@ class ControllerExtensionPaymentCardGate extends Controller {
             $cart_item_total = 0;
             $vat_total = 0;
             $shipping_tax = 0;
-            $oCart = $oTransaction->getCart();
-
+            
             foreach ( $this->cart->getProducts() as $product ) {
                 $price = round( $this->tax->calculate( $product['price'], $product['tax_class_id'], FALSE ) * 100, 0 );
                 $price_wt = round( $this->tax->calculate( $product['price'], $product['tax_class_id'], TRUE ) * 100, 0 );
