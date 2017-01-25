@@ -2,7 +2,7 @@
 
 include 'cardgate/cardgate.php';
 
-class ControllerPaymentCardGateSofortBanking extends ControllerPaymentCardGatePlusGeneric {
+class ControllerExtensionPaymentCardGateSofortBanking extends ControllerExtensionPaymentCardGatePlusGeneric {
 	public function index() {
 		$this->_index('cardgatesofortbanking');
 	}

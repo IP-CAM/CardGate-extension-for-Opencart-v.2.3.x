@@ -78,6 +78,10 @@ function data_element( $src, $dst, $is_dir = false ) {
 
 $data = array();
 
+$src = '../admin/controller/extension/total/cardgatefee.php';
+$dst = 'cardgate/admin/controller/extension/total/cardgatefee.php';
+$is_dir = false;
+array_push( $data, data_element( $src, $dst, $is_dir ) );
 
 $src = '../admin/controller/extension/payment/cardgate/cardgate.php';
 $dst = 'cardgate/admin/controller/extension/payment/cardgate/cardgate.php';
@@ -135,6 +139,7 @@ array_push( $data, data_element( $src, $dst, $is_dir ) );
 $src = '../admin/controller/extension/payment/cardgatesofortbanking.php';
 $dst = 'cardgate/admin/controller/extension/payment/cardgatesofortbanking.php';
 $is_dir = false;
+array_push( $data, data_element( $src, $dst, $is_dir ) );
 
 $src = '../admin/language/en-gb/extension/payment/cardgate.php';
 $dst = 'cardgate/admin/language/en-gb/extension/payment/cardgate.php';
@@ -188,6 +193,10 @@ $src = '../admin/language/en-gb/extension/payment/cardgatesofortbanking.php';
 $dst = 'cardgate/admin/language/en-gb/extension/payment/cardgatesofortbanking.php';
 $is_dir = false;
 array_push( $data, data_element( $src, $dst, $is_dir ) );
+$src = '../admin/language/en-gb/extension/total/cardgatefee.php';
+$dst = 'cardgate/admin/language/en-gb/extension/total/cardgatefee.php';
+$is_dir = false;
+array_push( $data, data_element( $src, $dst, $is_dir ) );
 
 $src = '../admin/language/nl-nl/extension/payment/cardgate.php';
 $dst = 'cardgate/admin/language/nl-nl/extension/payment/cardgate.php';
@@ -239,6 +248,10 @@ $is_dir = false;
 array_push( $data, data_element( $src, $dst, $is_dir ) );
 $src = '../admin/language/nl-nl/extension/payment/cardgatesofortbanking.php';
 $dst = 'cardgate/admin/language/nl-nl/extension/payment/cardgatesofortbanking.php';
+$is_dir = false;
+array_push( $data, data_element( $src, $dst, $is_dir ) );
+$src = '../admin/language/nl-nl/extension/total/cardgatefee.php';
+$dst = 'cardgate/admin/language/nl-nl/extension/total/cardgatefee.php';
 $is_dir = false;
 array_push( $data, data_element( $src, $dst, $is_dir ) );
 
@@ -297,6 +310,10 @@ $is_dir = false;
 array_push( $data, data_element( $src, $dst, $is_dir ) );
 $src = '../admin/view/template/extension/payment/cardgatesofortbanking.tpl';
 $dst = 'cardgate/admin/view/template/extension/payment/cardgatesofortbanking.tpl';
+$is_dir = false;
+array_push( $data, data_element( $src, $dst, $is_dir ) );
+$src = '../admin/view/template/extension/total/cardgatefee.tpl';
+$dst = 'cardgate/admin/view/template/extension/total/cardgatefee.tpl';
 $is_dir = false;
 array_push( $data, data_element( $src, $dst, $is_dir ) );
 
@@ -520,6 +537,10 @@ $src = '../catalog/model/extension/payment/cardgatesofortbanking.php';
 $dst = 'cardgate/catalog/model/extension/payment/cardgatesofortbanking.php';
 $is_dir = false;
 array_push( $data, data_element( $src, $dst, $is_dir ) );
+$src = '../catalog/model/extension/total/cardgatefee.php';
+$dst = 'cardgate/catalog/model/extension/total/cardgatefee.php';
+$is_dir = false;
+array_push( $data, data_element( $src, $dst, $is_dir ) );
 
 $src = '../catalog/view/theme/default/template/extension/payment/cardgateafterpay.tpl';
 $dst = 'cardgate/catalog/view/theme/default/template/extension/payment/cardgateafterpay.tpl';
@@ -531,6 +552,10 @@ $is_dir = false;
 array_push( $data, data_element( $src, $dst, $is_dir ) );
 $src = '../catalog/view/theme/default/template/extension/payment/cardgatebitcoin.tpl';
 $dst = 'cardgate/catalog/view/theme/default/template/extension/payment/cardgatebitcoin.tpl';
+$is_dir = false;
+array_push( $data, data_element( $src, $dst, $is_dir ) );
+$src = '../catalog/view/theme/default/template/extension/payment/cardgatecreditcard.tpl';
+$dst = 'cardgate/catalog/view/theme/default/template/extension/payment/cardgatecreditcard.tpl';
 $is_dir = false;
 array_push( $data, data_element( $src, $dst, $is_dir ) );
 $src = '../catalog/view/theme/default/template/extension/payment/cardgatedirectdebit.tpl';
@@ -566,8 +591,8 @@ $dst = 'cardgate/catalog/view/theme/default/template/extension/payment/cardgates
 $is_dir = false;
 array_push( $data, data_element( $src, $dst, $is_dir ) );
 
-$src = '../image/payment/cgp/';
-$dst = 'cardgate/image/cgp/';
+$src = '../image/payment/cgp';
+$dst = 'cardgate/image/payment/cgp';
 $is_dir = true;
 array_push( $data, data_element( $src, $dst, $is_dir ) );
 

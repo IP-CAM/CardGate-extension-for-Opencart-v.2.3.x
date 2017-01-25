@@ -56,6 +56,7 @@
             url: 'index.php?route=extension/payment/cardgateideal/confirm',
             data:{issuer_id:issuerId},
             beforeSend: function () {
+                
                 $('form#cardgate_checkout').hide();
                 $('form#cardgate_checkout').before('<div class="attention"><img src="catalog/view/theme/default/image/loading.gif" alt="" /> <?php echo $redirect_message; ?></div>');
             },

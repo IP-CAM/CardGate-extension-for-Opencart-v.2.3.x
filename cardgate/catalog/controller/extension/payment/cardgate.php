@@ -17,7 +17,9 @@
  * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 class ControllerExtensionPaymentCardGate extends Controller {
-    var $version = '2.3.0';
+
+    var $version = '2.3.3';
+
     /**
      * Index action
      */
@@ -39,11 +41,128 @@ class ControllerExtensionPaymentCardGate extends Controller {
         }
     }
 
+    public function getCardgateFees( $payment ) {
+
+        $fees = array();
+
+        for ( $i = 1; $i <= 12; $i++ ) {
+            $cardgatefee_total = ( float ) $this->config->get( 'cardgatefee_total' . $i );
+            if ( empty( $cardgatefee_total ) )
+                $cardgatefee_total = 0;
+
+            $cardgatefee_total_max = ( float ) $this->config->get( 'cardgatefee_total_max' . $i );
+
+            if ( $this->config->get( 'cardgatefee_status' ) != 1 )
+                continue;
+            if ( $this->config->get( 'cardgatefee_status' . $i ) != 1 )
+                continue;
+            if ( !$this->config->get( 'cardgatefee_name' . $i ) )
+                continue;
+            if ( $cardgatefee_total > $this->cart->getSubTotal() )
+                continue;
+            if ( $cardgatefee_total_max && $cardgatefee_total_max < $this->cart->getSubTotal() )
+                continue;
+            if ( $this->config->get( 'cardgatefee_payment' . $i ) && $this->config->get( 'cardgatefee_payment' . $i ) != $payment )
+                continue;
+
+            if ( $this->cart->hasShipping() && !empty( $this->session->data['shipping_method'] ) ) {
+                $shipping = $this->session->data['shipping_method'];
+                $shipping_method = $shipping['code'];
+            } else {
+                $shipping_method = 'none';
+            }
+
+            if ( $this->config->get( 'cardgatefee_shipping' . $i ) && $this->config->get( 'cardgatefee_shipping' . $i ) . '.' . $this->config->get( 'cardgatefee_shipping' . $i ) != $shipping_method && $this->config->get( 'cardgatefee_shipping' . $i ) != $shipping_method )
+                continue;
+
+            $address = array();
+            if ( isset( $this->session->data['shipping_address'] ) )
+                $address = $this->session->data['shipping_address'];
+
+            if ( $this->config->get( 'cardgatefee_geo_zone_id' . $i ) && $address ) {
+
+                $query = $this->db->query( "SELECT * FROM " . DB_PREFIX . "zone_to_geo_zone WHERE geo_zone_id='" . ( int ) $this->config->get( 'cardgatefee_geo_zone_id' . $i ) . "' AND country_id = '" . ( int ) $address['country_id'] . "' AND (zone_id = '" . ( int ) $address['zone_id'] . "' OR zone_id = '0')" );
+                if ( $query->num_rows == 0 )
+                    continue;
+            }
+
+            $tax_vat = 0;
+
+            if ( $this->config->get( 'cardgatefee_tax_class_id' . $i ) ) {
+                $tax_rates = $this->tax->getRates( $this->config->get( 'cardgatefee_cost' . $i ), $this->config->get( 'cardgatefee_tax_class_id' . $i ) );
+
+                foreach ( $tax_rates as $tax_rate ) {
+                    $tax_vat+=$tax_rate['amount'];
+                }
+            }
+
+            $fee = array();
+            $fee['code'] = 'cardgatefee' . $i;
+            $fee['name'] = $this->config->get( 'cardgatefee_name' . $i );
+            $fee['amount'] = round( $this->config->get( 'cardgatefee_cost' . $i ) * 100, 0 );
+            $fee['vat_amount'] = round( $tax_vat * 100, 0 );
+            $fees[] = $fee;
+        }
+
+        return $fees;
+
+        $totals = array();
+        $taxes = $this->cart->getTaxes();
+        $total = 0;
+
+        // Because __call can not keep var references so we put them into an array.
+        $total_data = array(
+            'totals' => &$totals,
+            'taxes' => &$taxes,
+            'total' => &$total
+        );
+
+        $this->load->model( 'extension/extension' );
+
+        $sort_order = array();
+
+        $results = $this->model_extension_extension->getExtensions( 'total' );
+
+        foreach ( $results as $key => $value ) {
+            $sort_order[$key] = $this->config->get( $value['code'] . '_sort_order' );
+        }
+
+        array_multisort( $sort_order, SORT_ASC, $results );
+
+        foreach ( $results as $result ) {
+            if ( $this->config->get( $result['code'] . '_status' ) ) {
+                $this->load->model( 'extension/total/' . $result['code'] );
+
+                // We have to put the totals in an array so that they pass by reference.
+                $this->{'model_extension_total_' . $result['code']}->getTotal( $total_data );
+            }
+        }
+
+        $sort_order = array();
+
+        foreach ( $totals as $key => $value ) {
+            $sort_order[$key] = $value['sort_order'];
+        }
+
+        array_multisort( $sort_order, SORT_ASC, $totals );
+
+        $fees = array();
+        foreach ( $totals as $key => $value ) {
+            if ( $value['code'] == 'cardgatefee' ) {
+                $value['value'] = round( $value['value'] * 100, 0 );
+                $fees[] = $value;
+            }
+        }
+        return array( $fees );
+    }
+
     /**
      * Check and register the Order and set to intialized mode
      */
     public function _confirm( $payment ) {
+
         $json = array();
+
         try {
             include 'cardgate-clientlib-php/init.php';
             $this->load->model( 'checkout/order' );
@@ -58,12 +177,12 @@ class ControllerExtensionPaymentCardGate extends Controller {
 
             $oCardGate = new cardgate\api\Client( ( int ) $this->config->get( 'cardgate_merchant_id' ), $this->config->get( 'cardgate_api_key' ), ($this->config->get( 'cardgate_test_mode' ) == 'test' ? TRUE : FALSE ) );
             $oCardGate->setIp( $_SERVER['REMOTE_ADDR'] );
-            $oCardGate->setLanguage( $this->language->get('code'));
+            $oCardGate->setLanguage( $this->language->get( 'code' ) );
             $oCardGate->version()->setPlatformName( 'Opencart' );
             $oCardGate->version()->setPlatformVersion( VERSION );
             $oCardGate->version()->setPluginName( 'Opencart_CardGate' );
             $oCardGate->version()->setPluginVersion( $this->version );
-            
+
             $iSiteId = ( int ) $this->config->get( 'cardgate_site_id' );
 
             $oTransaction = $oCardGate->transactions()->create( $iSiteId, $amount, $currency );
@@ -118,6 +237,7 @@ class ControllerExtensionPaymentCardGate extends Controller {
             $cart_item_total = 0;
             $vat_total = 0;
             $shipping_tax = 0;
+
             $oCart = $oTransaction->getCart();
 
             foreach ( $this->cart->getProducts() as $product ) {
@@ -174,6 +294,17 @@ class ControllerExtensionPaymentCardGate extends Controller {
                 $cart_item_total += $price;
             }
 
+            // extra fees
+            $aFees = $this->getCardgateFees( $payment );
+            if ( count( $aFees ) > 0 ) {
+                foreach ( $aFees as $fee ) {
+                    $oItem = $oCart->addItem( \cardgate\api\Item::TYPE_HANDLING, $fee['code'], $fee['name'], 1, $fee['amount'] );
+                    $oItem->setVatAmount( $fee['vat_amount'] );
+                    $oItem->setVatIncluded( 0 );
+                    $cart_item_total += $fee['amount'] + $fee['vat_amount'];
+                }
+            }
+
             $item_difference = $amount - $cart_item_total;
 
             $aTaxTotals = $this->cart->getTaxes();
@@ -205,6 +336,7 @@ class ControllerExtensionPaymentCardGate extends Controller {
                 $oItem->setVatAmount( 0 );
                 $oItem->setVatIncluded( 1 );
             }
+
             $oTransaction->setCallbackUrl( $this->url->link( 'extension/payment/cardgategeneric/control' ) );
             $oTransaction->setSuccessUrl( $this->url->link( 'extension/payment/' . $payment . '/success' ) );
             $oTransaction->setFailureUrl( $this->url->link( 'extension/payment/' . $payment . '/cancel' ) );
