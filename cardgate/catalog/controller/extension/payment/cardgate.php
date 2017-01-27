@@ -18,7 +18,7 @@
  */
 class ControllerExtensionPaymentCardGate extends Controller {
 
-    var $version = '2.3.3';
+    var $version = '2.3.4';
 
     /**
      * Index action
@@ -216,13 +216,9 @@ class ControllerExtensionPaymentCardGate extends Controller {
                             $address_info['iso_code_2'] : $order_info['payment_iso_code_2']  );
 
             if ( $this->cart->hasShipping() ) {
-                if ( $this->customer->isLogged() ) {
-                    $this->load->model( 'account/address' );
-                    $shipping_address = $this->session->data['shipping_address'];
-                } elseif ( isset( $this->session->data['guest'] ) ) {
-                    $shipping_address = $this->session->data['guest']['shipping'];
-                }
-
+                
+                $shipping_address = $this->session->data['shipping_address'];
+            
                 $oCustomer->shippingAddress()->setFirstName( $shipping_address['firstname'] );
                 $oCustomer->shippingAddress()->setLastName( $shipping_address['lastname'] );
                 $oCustomer->shippingAddress()->setAddress( $shipping_address['address_1'] .
@@ -392,8 +388,6 @@ class ControllerExtensionPaymentCardGate extends Controller {
     public function control() {
 
         $data = $_REQUEST;
-
-        // mail('richard@cardgate.com','data', print_r(array_values($data),true));
 
         try {
 

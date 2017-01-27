@@ -595,6 +595,11 @@ $dst = 'cardgate/catalog/view/theme/default/template/extension/payment/cardgates
 $is_dir = false;
 array_push( $data, data_element( $src, $dst, $is_dir ) );
 
+$src = '../catalog/view/theme/default/image/loading.gif';
+$dst = 'cardgate/catalog/view/theme/default/image/loading.gif';
+$is_dir = false;
+array_push( $data, data_element( $src, $dst, $is_dir ) );
+
 $src = '../image/payment/cgp';
 $dst = 'cardgate/image/payment/cgp';
 $is_dir = true;
