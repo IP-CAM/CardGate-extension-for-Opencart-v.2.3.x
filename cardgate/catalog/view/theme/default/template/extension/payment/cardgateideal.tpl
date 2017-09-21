@@ -1,78 +1,46 @@
-<?php
-/**
-* Opencart CardGatePlus payment extension
-*
-* NOTICE OF LICENSE
-*
-* This source file is subject to the Open Software License (OSL 3.0)
-* that is bundled with this package in the file LICENSE.txt.
-* It is also available through the world-wide-web at this URL:
-* http://opensource.org/licenses/osl-3.0.php
-*
-* @category    Payment
-* @package     Payment_CardGatePlus
-* @author      Richard Schoots, <info@cardgate.com>
-* @copyright   Copyright (c) 2013 CardGatePlus B.V. (http://www.cardgateplus.com)
-* @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
-*/
-?>
-
-<div class="buttons">
-    <form action="" method="POST" id="cardgate_checkout">
-        <input type="hidden" name="option" value="ideal" />     
-        <fieldset class="payment">
-            <legend><?php echo $text_ideal_bank_selection;  ?></legend>
-            <label style="position: relative;" class="method" >
-                <img src="./image/payment/cgp/ideal.png" alt="iDEAL">
-            </label>
-            <label style="position: relative; width: 200px;" class="issuers" for="CGP_IDEAL_ISSUER">
-                <select id="CGP_IDEAL_ISSUER" name="suboption">
-                    <?php echo $text_ideal_bank_options ?>
-                </select>
-            </label>
-        </fieldset>
-    </form>
+<form class="form-horizontal">
+  <fieldset id="payment">
+  <legend><?php echo $text_ideal_bank_selection;  ?></legend>
+  <div class="form-group required">
+  	<label class="col-sm-2 control-label" for="CGP_IDEAL_ISSUER"><img src="./image/payment/cgp/ideal.png" alt="iDEAL"></label>
+  	<div class="col-sm-10">
+  		<select name="suboption" id="CGP_IDEAL_ISSUER" class="form-control">
+  			<?php echo $text_ideal_bank_options ?>
+  		</select>
+  	</div>
+  </div>
+  </fieldset>
+ </form>
+  <div class="buttons">
+  <div class="pull-right">
+    <input type="button" value="<?php echo $button_confirm; ?>" id="button-confirm" data-loading-text="Loading..." class="btn btn-primary" />
+  </div>
 </div>
-<div class="buttons">
-    <div class="pull-right">
-        <input type="button" value="<?php echo $button_confirm; ?>" id="cardgate_confirm" class="btn btn-primary" />
-    </div>
-</div>
-
-<script type="text/javascript">
-
-    function checkBank() {
-        if ($('#CGP_IDEAL_ISSUER').val() == 0) {
-            alert('Kies eerst uw iDEAL bank a.u.b.');
-        } else {
-            redirectClient();
-        }
-    }
-
-    function redirectClient(response) {
-        var issuerId = $('#CGP_IDEAL_ISSUER').val();
-        $.ajax({
-            type: 'GET',
-            url: 'index.php?route=extension/payment/cardgateideal/confirm',
-            data:{issuer_id:issuerId},
-            beforeSend: function () {
-                
-                $('form#cardgate_checkout').hide();
-                $('form#cardgate_checkout').before('<div class="attention"><img src="catalog/view/theme/default/image/loading.gif" alt="" /> <?php echo $redirect_message; ?></div>');
-            },
-            success: function (json) {
-                if (json['success']) {
-                    location = json['redirect'];
-                }
-                if (!json['success']) {
-                    alert(json['error']);
-                }
-            },
-            error: function (XMLHttpRequest, textStatus, errorThrown) {
-                alert("Status: " + textStatus);
-                alert("Error: " + errorThrown);
-            }
-        });
-    }
-    $('#cardgate_confirm').bind('click', checkBank);
-</script>
+  
+<script type="text/javascript"><!--
+$('#button-confirm').bind('click', function() {
+	var issuerId = $('#CGP_IDEAL_ISSUER').val();
+	$.ajax({
+		 url: 'index.php?route=extension/payment/cardgateideal/confirm',
+		type: 'get',
+		data:{issuer_id:issuerId},
+		dataType: 'json',
+		beforeSend: function() {
+			$('#button-confirm').attr('disabled', true);
+			$('#payment').before('<div class="alert alert-info"><i class="fa fa-info-circle"></i> Processing, please wait...</div>');
+		},
+		complete: function() {
+			$('.alert').remove();
+			$('#button-confirm').attr('disabled', false);
+		},
+		success: function(json) {
+			 if (json['success']) {
+             	location = json['redirect'];
+             } 
+             if (!json['success']) {
+             	alert(json['error']);
+             }
+		}
+	});
+});
+//--></script>

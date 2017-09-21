@@ -1,52 +1,33 @@
-<?php
-/**
-* Opencart CardGatePlus payment extension
-*
-* NOTICE OF LICENSE
-*
-* This source file is subject to the Open Software License (OSL 3.0)
-* that is bundled with this package in the file LICENSE.txt.
-* It is also available through the world-wide-web at this URL:
-* http://opensource.org/licenses/osl-3.0.php
-*
-* @category    Payment
-* @package     Payment_CardGatePlus
-* @author      Richard Schoots, <info@cardgate.com>
-* @copyright   Copyright (c) 2013 CardGatePlus B.V. (http://www.cardgateplus.com)
-* @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
-*/
-?>
-
-<div class="buttons">
-    <form action="" method="POST" id="cardgate_checkout">
-        <input type="hidden" name="option" value="bitcoin" />
-        <img src="./image/payment/cgp/bitcoin.png" alt="Bitcoin">
-    </form>
+<form class="form-horizontal">
+  <img src="./image/payment/cgp/bitcoin.png" alt="Bitcoin">
+ </form>
+  <div class="buttons">
+  <div class="pull-right">
+    <input type="button" value="<?php echo $button_confirm; ?>" id="button-confirm" data-loading-text="Loading..." class="btn btn-primary" />
+  </div>
 </div>
-<div class="buttons">
-    <div class="pull-right">
-        <input type="button" value="<?php echo $button_confirm; ?>" id="cardgate-confirm" onclick="redirectClient()" class="btn btn-primary" />
-    </div>
-</div>
-
-<script type="text/javascript">
-
-    function redirectClient(response) {
-        $.ajax({
-            type: 'GET',
-            url: 'index.php?route=extension/payment/cardgatebitcoin/confirm',
-            beforeSend: function () {
-                $('form#cardgate_checkout').hide();
-                $('form#cardgate_checkout').before('<div class="attention"><img src="catalog/view/theme/default/image/loading.gif" alt="" /> <?php echo $redirect_message; ?></div>');
-            },
-            success: function (json){
-                if (json['success']){
-                    location = json['redirect'];
-                }
-                if (!json['success']){
-                    alert(json['error']);
-                } 
-            }
-        });
-    }
-</script>
+<script type="text/javascript"><!--
+$('#button-confirm').bind('click', function() {
+	$.ajax({
+		 url: 'index.php?route=extension/payment/cardgatebitcoin/confirm',
+		type: 'get',
+		dataType: 'json',
+		beforeSend: function() {
+			$('#button-confirm').attr('disabled', true);
+			$('#payment').before('<div class="alert alert-info"><i class="fa fa-info-circle"></i> Processing, please wait...</div>');
+		},
+		complete: function() {
+			$('.alert').remove();
+			$('#button-confirm').attr('disabled', false);
+		},
+		success: function(json) {
+			 if (json['success']) {
+             	location = json['redirect'];
+             } 
+             if (!json['success']) {
+             	alert(json['error']);
+             }
+		}
+	});
+});
+//--></script>
