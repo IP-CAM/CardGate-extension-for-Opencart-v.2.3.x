@@ -8,7 +8,7 @@
 
 ## Support
 
-This plugin supports Opencart version **2.3**.
+This extension supports Opencart version **2.3**.
 
 ## Preparation
 
