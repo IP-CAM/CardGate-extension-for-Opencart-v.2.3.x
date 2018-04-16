@@ -2,10 +2,6 @@
 
 # CardGate module for Opencart 2.3
 
-[![Total Downloads](https://img.shields.io/packagist/dt/cardgate/opencart23.svg)](https://packagist.org/packages/cardgate/opencart23)
-[![Latest Version](https://img.shields.io/packagist/v/cardgate/opencart23.svg)](https://github.com/cardgate/opencart23/releases)
-[![Build Status](https://travis-ci.org/cardgate/opencart23.svg?branch=master)](https://travis-ci.org/cardgate/opencart23)
-
 ## Support
 
 This extension supports Opencart version **2.3**.
