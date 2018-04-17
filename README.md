@@ -9,7 +9,7 @@ This extension supports Opencart version **2.3**.
 ## Preparation
 
 The usage of this module requires that you have obtained CardGate RESTful API credentials.  
-Please visit [My Cardgate](https://my.cardgate.com/) and retrieve your credentials, or contact your accountmanager.
+Please visit [My CardGate](https://my.cardgate.com/) and retrieve your credentials, or contact your accountmanager.
 
 ## Installation
 
@@ -27,7 +27,7 @@ Please visit [My Cardgate](https://my.cardgate.com/) and retrieve your credentia
 
 4. Enter the **site ID**, the **hash key**, the **merchant ID**, and the **API key**.  
 
-5. You can find these variables under **Sites** on [My Cardgate](https://my.cardgate.com/).  
+5. You can find these variables under **Sites** on [My CardGate](https://my.cardgate.com/).  
 
 6. Enter the other values and set the **Plugin Status** to **Active**.  
 
@@ -41,7 +41,7 @@ Please visit [My Cardgate](https://my.cardgate.com/) and retrieve your credentia
 
 11. Repeat steps 9 through 10 for each payment method you wish to activate.
 
-12. Go to [My Cardgate](https://my.cardgate.com/), choose **Sites** and select the appropriate site.  
+12. Go to [My CardGate](https://my.cardgate.com/), choose **Sites** and select the appropriate site.  
  
 13. Go to **Connection to the website** and enter the **hash key**, if you did so in the **CardGate Generic payment method**.
 
