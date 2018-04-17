@@ -38,7 +38,7 @@ gegevens op, of neem contact op met je accountmanager.
 
 9. Herhaal de stappen **2 tot en met 8** voor iedere betaalmethode die je wenst te activeren.
 
-10. Ga naar [Mijn CardGate](https://my.cardgate.com/), kies Sites en selecteer de juiste site.
+10. Ga naar [Mijn CardGate](https://my.cardgate.com/), kies **Sites** en selecteer de juiste site.
  
 11. Vul bij **Technische koppeling** de **Callback URL** in, bijvoorbeeld:  
     **http://mijnwebshop.com/index.php?route=payment/cardgategeneric/control**  

@@ -8,7 +8,7 @@ This extension supports Opencart version **2.3**.
 
 ## Preparation
 
-The usage of this module requires that you have obtained CardGate RESTful API credentials.
+The usage of this module requires that you have obtained CardGate RESTful API credentials.  
 Please visit [My Cardgate](https://my.cardgate.com/) and retrieve your credentials, or contact your accountmanager.
 
 ## Installation
