@@ -26,7 +26,7 @@ gegevens op, of neem contact op met je accountmanager.
 
 3. Klik nu op de knop **Wijzigen** van deze betaalmethode en ga naar het tabblad **Algemeen**. 
 
-4. Vul de **site ID** en de **hash key** in.
+4. Vul de **site ID**, de **hash key**, de merchant ID, en de API key in.
 
 5. Deze variabelen zijn te vinden bij **Sites** op [Mijn CardGate](https://my.cardgate.com/).
 
@@ -36,15 +36,19 @@ gegevens op, of neem contact op met je accountmanager.
 
 8. Klik nu op de knop **Bewaren**.
 
-9. Herhaal de stappen **2 tot en met 8** voor iedere betaalmethode die je wenst te activeren.
+9. Kies nu de **CardGate betaalmethode** die je wilt gebruiken, en klik op **Installeren**.
 
-10. Ga naar [Mijn CardGate](https://my.cardgate.com/), kies **Sites** en selecteer de juiste site.
+10. Klik op de knop **Wijzigen** van de betaalmethode en zet de **plugin status** op **Active**.
+
+11. Herhaal de stappen **9 tot en met 10** voor iedere betaalmethode die je wenst te activeren.
+
+12. Ga naar [Mijn CardGate](https://my.cardgate.com/), kies **Sites** en selecteer de juiste site.
  
-11. Vul bij **Technische koppeling** de **Callback URL** in, bijvoorbeeld:  
+13. Vul bij **Technische koppeling** de **Callback URL** in, bijvoorbeeld:  
     **http://mijnwebshop.com/index.php?route=payment/cardgategeneric/control**  
     (Vervang **http://mijnwebshop.com** met de URL van je webshop**)    
     
-12. Als je klaar bent met **testen** schakel dan alle **geactiveerde betaalmethoden** van **Test Mode** naar **Live mode** en sla het op (**Save**).
+14. Als je klaar bent met **testen** schakel dan alle **geactiveerde betaalmethoden** van **Test Mode** naar **Live mode** en sla het op (**Save**).
 
 ## Vereisten
 

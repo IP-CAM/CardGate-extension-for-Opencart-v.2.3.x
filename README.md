@@ -19,7 +19,7 @@ Please visit [My CardGate](https://my.cardgate.com/) and retrieve your credentia
 
 ## Configuration
 
-1. Go to the **admin** section of your webshop and select **Extensions, payment methods**.  
+1. Go to the **admin** section of your webshop and select **Extensions, Payments**.  
 
 2. Scroll to the **CardGate Generic payment method** and select **Install**.  
 
