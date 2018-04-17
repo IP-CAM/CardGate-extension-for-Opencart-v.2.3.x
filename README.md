@@ -41,7 +41,7 @@ Please visit [My Cardgate](https://my.cardgate.com/) and retrieve your credentia
 
 11. Repeat steps 9 through 10 for each payment method you wish to activate.
 
-12. Go to [My Cardgate](https://my.cardgate.com/), choose Sites and select the appropriate site.  
+12. Go to [My Cardgate](https://my.cardgate.com/), choose **Sites** and select the appropriate site.  
  
 13. Go to **Connection to the website** and enter the **hash key**, if you did so in the **CardGate Generic payment method**.
 
