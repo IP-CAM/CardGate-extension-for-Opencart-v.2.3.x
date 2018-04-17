@@ -4,13 +4,13 @@
 
 ## Support
 
-Deze extensie is geschikt voor OpenCart versie **2.3**.
+Deze extensie is geschikt voor OpenCart versie **2.3** .
 
 ## Voorbereiding
 
 Voor het gebruik van deze module zijn CardGate RESTful gegevens nodig.  
-Bezoek hiervoor [Mijn CardGate](https://my.cardgate.com/) en haal daar je  
-gegevens op, of neem contact op met je accountmanager.  
+Bezoek hiervoor [Mijn CardGate](https://my.cardgate.com/) en haal daar je gegevens op,  
+of neem contact op met je accountmanager.  
 
 ## Installatie
 
@@ -26,7 +26,7 @@ gegevens op, of neem contact op met je accountmanager.
 
 3. Klik nu op de knop **Wijzigen** van deze betaalmethode en ga naar het tabblad **Algemeen**. 
 
-4. Vul de **site ID**, de **hash key**, de merchant ID, en de API key in.
+4. Vul de **site ID**, de **hash key**, de **merchant ID**, en de **API key** in.
 
 5. Deze variabelen zijn te vinden bij **Sites** op [Mijn CardGate](https://my.cardgate.com/).
 
