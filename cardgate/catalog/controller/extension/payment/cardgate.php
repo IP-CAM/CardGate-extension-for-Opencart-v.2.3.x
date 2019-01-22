@@ -17,7 +17,7 @@
  * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 class ControllerExtensionPaymentCardGate extends Controller {
-	var $version = '2.3.8';
+	var $version = '2.3.9';
 	
 	/**
 	 * Index action
@@ -192,7 +192,7 @@ class ControllerExtensionPaymentCardGate extends Controller {
 			$oConsumer->address ()->setFirstName ( $order_info ['payment_firstname'] );
 			$oConsumer->address ()->setLastName ( $order_info ['payment_lastname'] );
 			if (! is_null ( $order_info ['payment_address_1'] )) {
-				$oConsumer->address ()->setAddress ( $order_info ['payment_address_1'] . ($order_info ['payment_address_2'] ? ', ' . $order_info ['payment_address_2'] : '') );
+				$oConsumer->address ()->setAddress ( $order_info ['payment_address_1'] . ($order_info ['payment_address_2'] ? ' ' . $order_info ['payment_address_2'] : '') );
 			}
 			$oConsumer->address ()->setZipCode ( $order_info ['payment_postcode'] );
 			$oConsumer->address ()->setCity ( $order_info ['payment_city'] );

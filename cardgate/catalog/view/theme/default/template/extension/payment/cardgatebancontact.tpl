@@ -1,5 +1,5 @@
 <form class="form-horizontal">
-  <img src="./image/payment/cgp/bancontact.png" alt="Bancontact">
+  <img style="max-height: 30px;max-width: 70px;" src="./image/payment/cgp/bancontact.svg" alt="Bancontact">
  </form>
   <div class="buttons">
   <div class="pull-right">
