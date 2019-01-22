@@ -1,5 +1,5 @@
 <form class="form-horizontal">
-  <img src="./image/payment/cgp/przelewy24.png" alt="Przelewy24">
+  <img style="max-height: 30px;max-width: 70px;" src="./image/payment/cgp/przelewy24.svg" alt="Przelewy24">
  </form>
   <div class="buttons">
   <div class="pull-right">

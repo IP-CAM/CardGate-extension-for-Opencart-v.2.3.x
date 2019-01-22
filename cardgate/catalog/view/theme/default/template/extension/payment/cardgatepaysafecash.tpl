@@ -1,5 +1,5 @@
 <form class="form-horizontal">
-  <img style="max-height: 30px;max-width: 70px;" src="./image/payment/cgp/directdebit.svg" alt="DirectDebit">
+  <img style="max-height: 30px;max-width: 70px;" src="./image/payment/cgp/paysafecash.svg" alt="Paysafecash">
  </form>
   <div class="buttons">
   <div class="pull-right">
@@ -9,7 +9,7 @@
 <script type="text/javascript"><!--
 $('#button-confirm').bind('click', function() {
 	$.ajax({
-		 url: 'index.php?route=extension/payment/cardgatedirectdebit/confirm',
+		 url: 'index.php?route=extension/payment/cardgatepaysafecash/confirm',
 		type: 'get',
 		dataType: 'json',
 		beforeSend: function() {

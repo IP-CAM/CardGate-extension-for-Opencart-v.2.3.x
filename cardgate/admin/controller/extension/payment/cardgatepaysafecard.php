@@ -2,13 +2,13 @@
 
 include 'cardgate/cardgate.php';
 
-class ControllerExtensionPaymentCardGatePayPal extends ControllerExtensionPaymentCardGatePlusGeneric {
+class ControllerExtensionPaymentCardGatePaysafecard extends ControllerExtensionPaymentCardGatePlusGeneric {
 	public function index() {
-		$this->_index('cardgatepaypal');
+		$this->_index('cardgatepaysafecard');
 	}
 
 	public function validate() {
-		return $this->_validate('cardgatepaypal');
+		return $this->_validate('cardgatepaysafecard');
 	}
 }
 ?>

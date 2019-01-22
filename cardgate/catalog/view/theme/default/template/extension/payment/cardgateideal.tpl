@@ -2,7 +2,7 @@
   <fieldset id="payment">
   <legend><?php echo $text_ideal_bank_selection;  ?></legend>
   <div class="form-group required">
-  	<label class="col-sm-2 control-label" for="CGP_IDEAL_ISSUER"><img src="./image/payment/cgp/ideal.png" alt="iDEAL"></label>
+  	<label style="max-height: 30px;max-width: 70px;" class="col-sm-2 control-label" for="CGP_IDEAL_ISSUER"><img src="./image/payment/cgp/ideal.svg" alt="iDEAL"></label>
   	<div class="col-sm-10">
   		<select name="suboption" id="CGP_IDEAL_ISSUER" class="form-control">
   			<?php echo $text_ideal_bank_options ?>
