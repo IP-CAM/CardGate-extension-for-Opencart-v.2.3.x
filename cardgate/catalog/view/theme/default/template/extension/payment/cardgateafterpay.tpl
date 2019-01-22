@@ -1,5 +1,5 @@
 <form class="form-horizontal">
-  <img src="./image/payment/cgp/afterpay.png" alt="Afterpay">
+  <img style="max-height: 30px;max-width: 70px;" src="./image/payment/cgp/afterpay.svg" alt="Afterpay">
  </form>
   <div class="buttons">
   <div class="pull-right">

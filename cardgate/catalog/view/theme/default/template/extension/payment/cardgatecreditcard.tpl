@@ -1,5 +1,5 @@
 <form class="form-horizontal">
-  <img src="./image/payment/cgp/creditcard.png" alt="Creditcard">
+  <img style="max-height: 30px;max-width: 70px;" src="./image/payment/cgp/creditcard.svg" alt="Creditcard">
  </form>
   <div class="buttons">
   <div class="pull-right">

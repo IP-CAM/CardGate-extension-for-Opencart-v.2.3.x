@@ -1,5 +1,5 @@
 <form class="form-horizontal">
-  <img src="./image/payment/cgp/idealqr.png" alt="iDEAL QR">
+  <img style="max-height: 30px;max-width: 70px;" src="./image/payment/cgp/idealqr.svg" alt="iDEAL QR">
  </form>
   <div class="buttons">
   <div class="pull-right">
