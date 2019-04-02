@@ -23,7 +23,7 @@ class ControllerExtensionPaymentCardGatePlusGeneric extends Controller {
     public function _index( $payment ) {
 
         //update version also in catalog/controller/payment/cardgate/cardgate.php
-        $version = '2.3.9';
+        $version = '2.3.10';
          
         $this->load->language( 'extension/payment/' . $payment );
         $this->document->setTitle( $this->language->get( 'heading_title' ) );
@@ -33,6 +33,7 @@ class ControllerExtensionPaymentCardGatePlusGeneric extends Controller {
         $site_url = HTTPS_CATALOG;
 
         if ( ($this->request->server['REQUEST_METHOD'] == 'POST') && ($this->validate()) ) {
+            $this->cache->set('cardgateissuerrefresh', 0);
             $this->model_setting_setting->editSetting( $payment, $this->request->post );
             $this->session->data['success'] = $this->language->get( 'text_success' );
             $this->response->redirect( $this->url->link( 'extension/extension', 'token=' . $this->session->data['token']. '&type=payment', true) );

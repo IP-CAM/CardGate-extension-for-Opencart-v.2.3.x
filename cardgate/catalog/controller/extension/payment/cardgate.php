@@ -17,7 +17,7 @@
  * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 class ControllerExtensionPaymentCardGate extends Controller {
-	var $version = '2.3.9';
+	var $version = '2.3.10';
 	
 	/**
 	 * Index action
@@ -449,32 +449,60 @@ class ControllerExtensionPaymentCardGate extends Controller {
 	 * Fetch bank option data from cardgate
 	 */
 	public function getBankOptions() {
-		try {
-			
-			include 'cardgate-clientlib-php/init.php';
-			
-			$oCardGate = new cardgate\api\Client ( ( int ) $this->config->get ( 'cardgate_merchant_id' ), $this->config->get ( 'cardgate_api_key' ), ($this->config->get ( 'cardgate_test_mode' ) == 'test' ? TRUE : FALSE) );
-			$oCardGate->setIp ( $_SERVER ['REMOTE_ADDR'] );
-			
-			$aIssuers = $oCardGate->methods ()->get ( cardgate\api\Method::IDEAL )->getIssuers ();
-		} catch ( cardgate\api\Exception $oException_ ) {
-			$aIssuers [0] = [ 
-					'id' => 0,
-					'name' => htmlspecialchars ( $oException_->getMessage () ) 
-			];
-		}
-		
+	    
+	    $this->checkBankOptions();
+	    $sIssuers = $this->cache->get('cardgateissuers');
+		$aIssuers = unserialize($sIssuers);
 		$options = '';
 		foreach ( $aIssuers as $aIssuer ) {
 			$options .= '<option value="' . $aIssuer ['id'] . '">' . $aIssuer ['name'] . '</option>';
 		}
 		return $options;
 	}
+	
 	public function returnJson($message) {
 		$json = array ();
 		$json ['success'] = false;
 		$json ['error'] = $message;
 		$this->response->addHeader ( 'Content-Type: application/json' );
 		$this->response->setOutput ( json_encode ( $json ) );
+	}
+	
+	/**
+	 * Check issuer refresh lifetime.
+	 */
+	private function checkBankOptions() {
+	    
+	    $iLifeTime = $this->cache->get('cardgateissuerrefresh');
+	    if (!$iLifeTime || ($iLifeTime < time())){
+	        $this->cacheBankOptions();
+	    }
+	}
+	
+	/**
+	 * Cache bank options
+	 */
+	private function cacheBankOptions() {
+	    $iCacheTime = 24 * 60 * 60;
+	    $iLifeTime = time() + $iCacheTime;
+	    $this->cache->set('cardgateissuerrefresh', $iLifeTime);
+
+	    try {
+	        
+	        include 'cardgate-clientlib-php/init.php';
+	        
+	        $oCardGate = new cardgate\api\Client ( ( int ) $this->config->get ( 'cardgate_merchant_id' ), $this->config->get ( 'cardgate_api_key' ), ($this->config->get ( 'cardgate_test_mode' ) == 'test' ? TRUE : FALSE) );
+	        $oCardGate->setIp ( $_SERVER ['REMOTE_ADDR'] );
+	        
+	        $aIssuers = $oCardGate->methods ()->get ( cardgate\api\Method::IDEAL )->getIssuers ();
+	    } catch ( cardgate\api\Exception $oException_ ) {
+	        $aIssuers [0] = [
+	            'id' => 0,
+	            'name' => htmlspecialchars ( $oException_->getMessage () )
+	        ];
+	    }
+	    
+	    $sIssuers = serialize($aIssuers);
+	    $this->cache->set('cardgateissuers', $sIssuers);
 	}
 }
