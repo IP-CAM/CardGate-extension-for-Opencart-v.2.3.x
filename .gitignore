@@ -31,7 +31,6 @@ admin/controller/extension/payment/*
 !admin/controller/extension/payment/cardgatepaysafecash.php
 !admin/controller/extension/payment/cardgateprzelewy24.php
 !admin/controller/extension/payment/cardgatesofortbanking.php
-
 !admin/language
 admin/language/*
 !admin/language/en-gb
@@ -126,7 +125,6 @@ catalog/controller/extension/*
 !catalog/controller/extension/payment
 catalog/controller/extension/payment/*
 !catalog/controller/extension/payment/cardgate-clientlib-php
-!catalog/controller/extension/payment/cardgate-clientlib-php/src
 !catalog/controller/extension/payment/cardgate.php
 !catalog/controller/extension/payment/cardgateafterpay.php
 !catalog/controller/extension/payment/cardgatebanktransfer.php
@@ -146,7 +144,6 @@ catalog/controller/extension/payment/*
 !catalog/controller/extension/payment/cardgatepaysafecash.php
 !catalog/controller/extension/payment/cardgateprzelewy24.php
 !catalog/controller/extension/payment/cardgatesofortbanking.php
-
 !catalog/language
 catalog/language/*
 !catalog/language/en-gb
@@ -173,8 +170,6 @@ catalog/language/en-gb/extension/payment/*
 !catalog/language/en-gb/extension/payment/cardgatepaysafecash.php
 !catalog/language/en-gb/extension/payment/cardgateprzelewy24.php
 !catalog/language/en-gb/extension/payment/cardgatesofortbanking.php
-!catalog/language
-catalog/language/*
 !catalog/language/nl-nl
 catalog/language/nl-nl/*
 !catalog/language/nl-nl/extension
