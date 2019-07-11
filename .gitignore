@@ -126,6 +126,7 @@ catalog/controller/extension/*
 !catalog/controller/extension/payment
 catalog/controller/extension/payment/*
 !catalog/controller/extension/payment/cardgate-clientlib-php
+!catalog/controller/extension/payment/cardgate-clientlib-php/src
 !catalog/controller/extension/payment/cardgate.php
 !catalog/controller/extension/payment/cardgateafterpay.php
 !catalog/controller/extension/payment/cardgatebanktransfer.php
