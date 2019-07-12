@@ -15,7 +15,7 @@ Please visit [My CardGate](https://my.cardgate.com/) and retrieve your credentia
 
 1. Download and unzip the most recent [source code](https://github.com/cardgate/opencart23/releases/) file on your desktop.
 
-2. Upload the **contents** of the **cardgate** folder in the zip file to the **folders with the same name** on your webshop.
+2. Upload the **contents** of the zip file to the **folders with the same name** on your webshop.
 
 ## Configuration
 
