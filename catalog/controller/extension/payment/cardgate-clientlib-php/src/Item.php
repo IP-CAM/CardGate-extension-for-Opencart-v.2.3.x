@@ -134,10 +134,9 @@ namespace cardgate\api {
 		 * @param int $iType_ The cart item type.
 		 * @param string $sSKU_ The SKU of the cart item.
 		 * @param string $sName_ The name of the cart item (productname).
-		 * @param $iQuantity_
 		 * @param int $iPrice_ The price of the cart item.
 		 * @param string $sLink_ An optional link to the product.
-		 * @throws Exception|\ReflectionException
+		 * @throws Exception
 		 * @access public
 		 * @api
 		 */
@@ -185,6 +184,7 @@ namespace cardgate\api {
 		 * Sets the vat included flag.
 		 * @param bool $bVatIncluded_ The vat included flag to set.
 		 * @return Item Returns this, makes the call chainable.
+		 * @throws Exception
 		 * @access public
 		 * @api
 		 */

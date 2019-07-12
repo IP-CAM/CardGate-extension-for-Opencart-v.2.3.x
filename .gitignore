@@ -154,6 +154,7 @@ catalog/language/en-gb/extension/*
 catalog/language/en-gb/extension/payment/*
 !catalog/language/en-gb/extension/payment/cardgate.php
 !catalog/language/en-gb/extension/payment/cardgateafterpay.php
+!catalog/language/en-gb/extension/payment/cardgatebancontact.php
 !catalog/language/en-gb/extension/payment/cardgatebanktransfer.php
 !catalog/language/en-gb/extension/payment/cardgatebillink.php
 !catalog/language/en-gb/extension/payment/cardgatebitcoin.php
@@ -164,7 +165,6 @@ catalog/language/en-gb/extension/payment/*
 !catalog/language/en-gb/extension/payment/cardgateidealqr.php
 !catalog/language/en-gb/extension/payment/cardgateideal.php
 !catalog/language/en-gb/extension/payment/cardgateklarna.php
-!catalog/language/en-gb/extension/payment/cardgatebancontact.php
 !catalog/language/en-gb/extension/payment/cardgatepaypal.php
 !catalog/language/en-gb/extension/payment/cardgatepaysafecard.php
 !catalog/language/en-gb/extension/payment/cardgatepaysafecash.php
@@ -178,6 +178,7 @@ catalog/language/nl-nl/extension/*
 catalog/language/nl-nl/extension/payment/*
 !catalog/language/nl-nl/extension/payment/cardgate.php
 !catalog/language/nl-nl/extension/payment/cardgateafterpay.php
+!catalog/language/nl-nl/extension/payment/cardgatebancontact.php
 !catalog/language/nl-nl/extension/payment/cardgatebanktransfer.php
 !catalog/language/nl-nl/extension/payment/cardgatebillink.php
 !catalog/language/nl-nl/extension/payment/cardgatebitcoin.php
@@ -188,7 +189,6 @@ catalog/language/nl-nl/extension/payment/*
 !catalog/language/nl-nl/extension/payment/cardgateidealqr.php
 !catalog/language/nl-nl/extension/payment/cardgateideal.php
 !catalog/language/nl-nl/extension/payment/cardgateklarna.php
-!catalog/language/nl-nl/extension/payment/cardgatebancontact.php
 !catalog/language/nl-nl/extension/payment/cardgatepaypal.php
 !catalog/language/nl-nl/extension/payment/cardgatepaysafecard.php
 !catalog/language/nl-nl/extension/payment/cardgatepaysafecash.php
@@ -202,6 +202,7 @@ catalog/model/extension/*
 catalog/model/extension/payment/*
 !catalog/model/extension/payment/cardgate.php
 !catalog/model/extension/payment/cardgateafterpay.php
+!catalog/model/extension/payment/cardgatebancontact.php
 !catalog/model/extension/payment/cardgatebanktransfer.php
 !catalog/model/extension/payment/cardgatebillink.php
 !catalog/model/extension/payment/cardgatebitcoin.php
@@ -212,7 +213,6 @@ catalog/model/extension/payment/*
 !catalog/model/extension/payment/cardgateidealqr.php
 !catalog/model/extension/payment/cardgateideal.php
 !catalog/model/extension/payment/cardgateklarna.php
-!catalog/model/extension/payment/cardgatebancontact.php
 !catalog/model/extension/payment/cardgatepaypal.php
 !catalog/model/extension/payment/cardgatepaysafecard.php
 !catalog/model/extension/payment/cardgatepaysafecash.php
@@ -234,6 +234,7 @@ catalog/view/theme/default/template/extension/*
 !catalog/view/theme/default/template/extension/payment/
 catalog/view/theme/default/template/extension/payment/*
 !catalog/view/theme/default/template/extension/payment/cardgateafterpay.tpl
+!catalog/view/theme/default/template/extension/payment/cardgatebancontact.tpl
 !catalog/view/theme/default/template/extension/payment/cardgatebanktransfer.tpl
 !catalog/view/theme/default/template/extension/payment/cardgatebillink.tpl
 !catalog/view/theme/default/template/extension/payment/cardgatebitcoin.tpl
@@ -245,7 +246,6 @@ catalog/view/theme/default/template/extension/payment/*
 !catalog/view/theme/default/template/extension/payment/cardgateidealqr.tpl
 !catalog/view/theme/default/template/extension/payment/cardgateideal.tpl
 !catalog/view/theme/default/template/extension/payment/cardgateklarna.tpl
-!catalog/view/theme/default/template/extension/payment/cardgatebancontact.tpl
 !catalog/view/theme/default/template/extension/payment/cardgatepaypal.tpl
 !catalog/view/theme/default/template/extension/payment/cardgatepaysafecard.tpl
 !catalog/view/theme/default/template/extension/payment/cardgatepaysafecash.tpl
@@ -259,3 +259,5 @@ image/*
 !image/payment
 image/payment/*
 !image/payment/cgp
+!README.md
+!README_NL.md
