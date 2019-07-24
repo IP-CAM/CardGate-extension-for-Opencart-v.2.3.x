@@ -17,7 +17,7 @@
  * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 class ControllerExtensionPaymentCardGate extends Controller {
-	var $version = '2.3.11';
+	var $version = '2.3.12';
 	
 	/**
 	 * Index action
@@ -483,9 +483,6 @@ class ControllerExtensionPaymentCardGate extends Controller {
 	 * Cache bank options
 	 */
 	private function cacheBankOptions() {
-	    $iCacheTime = 24 * 60 * 60;
-	    $iLifeTime = time() + $iCacheTime;
-	    $this->cache->set('cardgateissuerrefresh', $iLifeTime);
 
 	    try {
 	        
@@ -501,8 +498,21 @@ class ControllerExtensionPaymentCardGate extends Controller {
 	            'name' => htmlspecialchars ( $oException_->getMessage () )
 	        ];
 	    }
-	    
-	    $sIssuers = serialize($aIssuers);
-	    $this->cache->set('cardgateissuers', $sIssuers);
+
+		$aBanks = array();
+
+		if ( is_array( $aIssuers ) ) {
+			foreach ( $aIssuers as $key => $aIssuer ) {
+				$aBanks[ $aIssuer['id'] ] = $aIssuer['name'];
+			}
+		}
+
+		if (array_key_exists("INGBNL2A", $aBanks)) {
+			$iCacheTime = 24 * 60 * 60;
+			$iLifeTime = time() + $iCacheTime;
+			$this->cache->set('cardgateissuerrefresh', $iLifeTime);
+			$sIssuers = serialize( $aIssuers);
+			$this->cache->set( 'cardgateissuers', $sIssuers);
+		}
 	}
 }
