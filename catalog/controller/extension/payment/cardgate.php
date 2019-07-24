@@ -473,7 +473,7 @@ class ControllerExtensionPaymentCardGate extends Controller {
 	 */
 	private function checkBankOptions() {
 	    
-	    $iLifeTime = $this->cache->get('cardgateissuerrefresh');$iLifeTime = 0;
+	    $iLifeTime = $this->cache->get('cardgateissuerrefresh');
 	    if (!$iLifeTime || ($iLifeTime < time())){
 	        $this->cacheBankOptions();
 	    }
@@ -483,9 +483,6 @@ class ControllerExtensionPaymentCardGate extends Controller {
 	 * Cache bank options
 	 */
 	private function cacheBankOptions() {
-	    $iCacheTime = 24 * 60 * 60;
-	    $iLifeTime = time() + $iCacheTime;
-	    $this->cache->set('cardgateissuerrefresh', $iLifeTime);
 
 	    try {
 	        
