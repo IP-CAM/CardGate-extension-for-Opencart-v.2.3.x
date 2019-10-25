@@ -26,6 +26,7 @@ admin/controller/extension/payment/*
 !admin/controller/extension/payment/cardgateideal.php
 !admin/controller/extension/payment/cardgateklarna.php
 !admin/controller/extension/payment/cardgatebancontact.php
+!admin/controller/extension/payment/cardgateonlineueberweisen.php
 !admin/controller/extension/payment/cardgatepaypal.php
 !admin/controller/extension/payment/cardgatepaysafecard.php
 !admin/controller/extension/payment/cardgatepaysafecash.php
@@ -52,6 +53,7 @@ admin/language/en-gb/extension/payment/*
 !admin/language/en-gb/extension/payment/cardgateideal.php
 !admin/language/en-gb/extension/payment/cardgateklarna.php
 !admin/language/en-gb/extension/payment/cardgatebancontact.php
+!admin/language/en-gb/extension/payment/cardgateonlineueberweisen.php
 !admin/language/en-gb/extension/payment/cardgatepaypal.php
 !admin/language/en-gb/extension/payment/cardgatepaysafecard.php
 !admin/language/en-gb/extension/payment/cardgatepaysafecash.php
@@ -79,6 +81,7 @@ admin/language/nl-nl/extension/payment/*
 !admin/language/nl-nl/extension/payment/cardgateideal.php
 !admin/language/nl-nl/extension/payment/cardgateklarna.php
 !admin/language/nl-nl/extension/payment/cardgatebancontact.php
+!admin/language/nl-nl/extension/payment/cardgateonlineueberweisen.php
 !admin/language/nl-nl/extension/payment/cardgatepaypal.php
 !admin/language/nl-nl/extension/payment/cardgatepaysafecard.php
 !admin/language/nl-nl/extension/payment/cardgatepaysafecash.php
@@ -110,6 +113,7 @@ admin/view/template/extension/payment/*
 !admin/view/template/extension/payment/cardgateideal.tpl
 !admin/view/template/extension/payment/cardgateklarna.tpl
 !admin/view/template/extension/payment/cardgatebancontact.tpl
+!admin/view/template/extension/payment/cardgateonlineueberweisen.tpl
 !admin/view/template/extension/payment/cardgatepaypal.tpl
 !admin/view/template/extension/payment/cardgatepaysafecard.tpl
 !admin/view/template/extension/payment/cardgatepaysafecash.tpl
@@ -138,6 +142,7 @@ catalog/controller/extension/payment/*
 !catalog/controller/extension/payment/cardgateideal.php
 !catalog/controller/extension/payment/cardgateklarna.php
 !catalog/controller/extension/payment/cardgatebancontact.php
+!catalog/controller/extension/payment/cardgateonlineueberweisen.php
 !catalog/controller/extension/payment/cardgatepaypal.php
 !catalog/controller/extension/payment/cardgatepaysafecard.php
 !catalog/controller/extension/payment/cardgatepaysafecash.php
@@ -165,6 +170,7 @@ catalog/language/en-gb/extension/payment/*
 !catalog/language/en-gb/extension/payment/cardgateidealqr.php
 !catalog/language/en-gb/extension/payment/cardgateideal.php
 !catalog/language/en-gb/extension/payment/cardgateklarna.php
+!catalog/language/en-gb/extension/payment/cardgateonlineueberweisen.php
 !catalog/language/en-gb/extension/payment/cardgatepaypal.php
 !catalog/language/en-gb/extension/payment/cardgatepaysafecard.php
 !catalog/language/en-gb/extension/payment/cardgatepaysafecash.php
@@ -189,6 +195,7 @@ catalog/language/nl-nl/extension/payment/*
 !catalog/language/nl-nl/extension/payment/cardgateidealqr.php
 !catalog/language/nl-nl/extension/payment/cardgateideal.php
 !catalog/language/nl-nl/extension/payment/cardgateklarna.php
+!catalog/language/nl-nl/extension/payment/cardgateonlineueberweisen.php
 !catalog/language/nl-nl/extension/payment/cardgatepaypal.php
 !catalog/language/nl-nl/extension/payment/cardgatepaysafecard.php
 !catalog/language/nl-nl/extension/payment/cardgatepaysafecash.php
@@ -213,6 +220,7 @@ catalog/model/extension/payment/*
 !catalog/model/extension/payment/cardgateidealqr.php
 !catalog/model/extension/payment/cardgateideal.php
 !catalog/model/extension/payment/cardgateklarna.php
+!catalog/model/extension/payment/cardgateonlineueberweisen.php
 !catalog/model/extension/payment/cardgatepaypal.php
 !catalog/model/extension/payment/cardgatepaysafecard.php
 !catalog/model/extension/payment/cardgatepaysafecash.php
@@ -246,6 +254,7 @@ catalog/view/theme/default/template/extension/payment/*
 !catalog/view/theme/default/template/extension/payment/cardgateidealqr.tpl
 !catalog/view/theme/default/template/extension/payment/cardgateideal.tpl
 !catalog/view/theme/default/template/extension/payment/cardgateklarna.tpl
+!catalog/view/theme/default/template/extension/payment/cardgateonlineueberweisen.tpl
 !catalog/view/theme/default/template/extension/payment/cardgatepaypal.tpl
 !catalog/view/theme/default/template/extension/payment/cardgatepaysafecard.tpl
 !catalog/view/theme/default/template/extension/payment/cardgatepaysafecash.tpl
