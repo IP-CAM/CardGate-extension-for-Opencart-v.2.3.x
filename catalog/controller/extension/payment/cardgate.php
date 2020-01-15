@@ -217,8 +217,8 @@ class ControllerExtensionPaymentCardGate extends Controller {
 			$oCart = $oTransaction->getCart ();
 			
 			foreach ( $this->cart->getProducts () as $product ) {
-				$price = round ( $this->tax->calculate ( $product ['price'], $product ['tax_class_id'], FALSE ) * 100, 0 );
-				$price_wt = round ( $this->tax->calculate ( $product ['price'], $product ['tax_class_id'], TRUE ) * 100, 0 );
+				$price = $this->convertAmount($this->tax->calculate ( $product ['price'], $product ['tax_class_id'], FALSE ), $order_info['currency_code']);
+				$price_wt = $this->convertAmount($this->tax->calculate ( $product ['price'], $product ['tax_class_id'], TRUE ), $order_info ['currency_code']);
 				$vat = $this->tax->getTax ( $price, $product ['tax_class_id'] );
 				$vat_perc = round ( $vat / $product ['price'], 2 );
 				$vat_per_item = round ( $price_wt - $price, 0 );
@@ -233,8 +233,8 @@ class ControllerExtensionPaymentCardGate extends Controller {
 			if ($this->cart->hasShipping () && ! empty ( $this->session->data ['shipping_method'] )) {
 				$shipping_data = $this->session->data ['shipping_method'];
 				if ($shipping_data ['cost'] > 0) {
-					$price = round ( $this->tax->calculate ( $shipping_data ['cost'], $shipping_data ['tax_class_id'], FALSE ) * 100 );
-					$price_wt = round ( $this->tax->calculate ( $shipping_data ['cost'], $shipping_data ['tax_class_id'], TRUE ) * 100 );
+					$price = $this->convertAmount( $this->tax->calculate ( $shipping_data ['cost'], $shipping_data ['tax_class_id'], FALSE ), $order_info ['currency_code']);
+					$price_wt = $this->convertAmount( $this->tax->calculate ( $shipping_data ['cost'], $shipping_data ['tax_class_id'], TRUE ), $order_info ['currency_code']);
 					$vat = $this->tax->getTax ( $shipping_data ['cost'], $shipping_data ['tax_class_id'] );
 					$vat_perc = round ( $vat / $shipping_data ['cost'], 2 );
 					$vat_per_item = round ( $price_wt - $price, 0 );
@@ -290,8 +290,8 @@ class ControllerExtensionPaymentCardGate extends Controller {
 			foreach ( $aTaxTotals as $total ) {
 				$tax_total += $total;
 			}
-			
-			$tax_total = round ( $tax_total * 100, 0 );
+
+			$tax_total = $this->convertAmount($tax_total, $order_info['currency_code']);
 			$tax_total += $shipping_tax;
 			
 			$tax_difference = $tax_total - $vat_total;
@@ -514,5 +514,9 @@ class ControllerExtensionPaymentCardGate extends Controller {
 			$sIssuers = serialize( $aIssuers);
 			$this->cache->set( 'cardgateissuers', $sIssuers);
 		}
+	}
+
+	private function convertAmount($amount, $currency_code){
+		return round($this->currency->format ( $amount, $currency_code, false, false ) * 100, 0 );
 	}
 }
