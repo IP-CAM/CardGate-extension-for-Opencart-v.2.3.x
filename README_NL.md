@@ -2,9 +2,11 @@
 
 # CardGate extensie voor Opencart 2.3
 
+[![Build Status](https://travis-ci.org/cardgate/opencart23.svg?branch=master)](https://travis-ci.org/cardgate/opencart23)
+
 ## Support
 
-Deze extensie is geschikt voor OpenCart versie **2.3** .
+Deze extensie is geschikt voor OpenCart versie **2.3**
 
 ## Voorbereiding
 
@@ -16,7 +18,7 @@ of neem contact op met je accountmanager.
 
 1. Download en unzip de meest recente [source code](https://github.com/cardgate/opencart23/releases/) op je bureaublad.
 
-2. Upload de **inhoud** van de zipfile naar de **gelijknamige mappen** op je webshop.
+2. Upload de **admin en catalog** mappen van de zipfile naar de **gelijknamige mappen** op je webshop.
 
 ## Configuratie
 

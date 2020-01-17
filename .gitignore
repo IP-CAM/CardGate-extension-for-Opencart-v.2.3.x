@@ -268,5 +268,9 @@ image/*
 !image/payment
 image/payment/*
 !image/payment/cgp
+!tests/
 !README.md
 !README_NL.md
+!.travis.yml
+!composer.json
+!phpunit.xml.dist
