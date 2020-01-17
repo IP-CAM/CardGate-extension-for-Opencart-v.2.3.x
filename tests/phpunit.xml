@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<phpunit bootstrap="bootstrap.php" backupStaticAttributes="false" colors="true">
+    <testsuites>
+        <testsuite name="CardGate OpenCart23">
+            <directory>.</directory>
+        </testsuite>
+    </testsuites>
+    <filter>
+        <whitelist addUncoveredFilesFromWhitelist="true">
+            <directory>../admin</directory>
+            <directory>../catalog</directory>
+        </whitelist>
+    </filter>
+</phpunit>
