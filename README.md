@@ -2,9 +2,11 @@
 
 # CardGate extension for Opencart 2.3
 
+[![Build Status](https://travis-ci.org/cardgate/opencart23.svg?branch=master)](https://travis-ci.org/cardgate/opencart23)
+
 ## Support
 
-This extension supports Opencart version **2.3** .
+This extension supports Opencart version **2.3**
 
 ## Preparation
 
@@ -15,7 +17,7 @@ Please visit [My CardGate](https://my.cardgate.com/) and retrieve your credentia
 
 1. Download and unzip the most recent [source code](https://github.com/cardgate/opencart23/releases/) file on your desktop.
 
-2. Upload the **contents** of the zip file to the **folders with the same name** on your webshop.
+2. Upload the **admin and catalog** folders of the zip file to the **folders with the same name** on your webshop.
 
 ## Configuration
 
