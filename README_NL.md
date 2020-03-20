@@ -16,9 +16,9 @@ of neem contact op met je accountmanager.
 
 ## Installatie
 
-1. Download en unzip de meest recente [source code](https://github.com/cardgate/opencart23/releases/) op je bureaublad.
+1. Download en unzip het meest recente [cardgate.zip](https://github.com/cardgate/opencart23/releases/) bestand op je bureaublad.
 
-2. Upload de **admin en catalog** mappen van de zipfile naar de **gelijknamige mappen** op je webshop.
+2. Upload de **admin, catalog en image** mappen van de zipfile naar de **gelijknamige mappen** op je webshop.
 
 ## Configuratie
 
@@ -42,13 +42,13 @@ of neem contact op met je accountmanager.
 
 10. Klik op de knop **Wijzigen** van de betaalmethode en zet de **plugin status** op **Active**.
 
-11. Herhaal de stappen **9 tot en met 10** voor iedere betaalmethode die je wenst te activeren.
+11. Herhaal de stappen **9 en 10** voor iedere betaalmethode die je wenst te activeren.
 
 12. Ga naar [Mijn CardGate](https://my.cardgate.com/), kies **Sites** en selecteer de juiste site.
  
 13. Vul bij **Technische koppeling** de **Callback URL** in, bijvoorbeeld:  
     **http://mijnwebshop.com/index.php?route=payment/cardgategeneric/control**  
-    (Vervang **http://mijnwebshop.com** met de URL van je webshop**)    
+    (Vervang **http://mijnwebshop.com** met de URL van je webshop.)    
     
 14. Als je klaar bent met **testen** schakel dan alle **geactiveerde betaalmethoden** van **Test Mode** naar **Live mode** en sla het op (**Save**).
 
