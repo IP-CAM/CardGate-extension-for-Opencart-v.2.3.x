@@ -271,6 +271,7 @@ image/payment/*
 !tests/
 !README.md
 !README_NL.md
+!README_DE.md
 !.travis.yml
 !composer.json
 !phpunit.xml.dist
