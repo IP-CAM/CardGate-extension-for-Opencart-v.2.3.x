@@ -11,8 +11,8 @@ Diese Erweiterung is geeignet für OpenCart Version **2.3**
 
 ## Vorbereitung
 
-Für die Verwendung dieses Moduls sind CardGate RESTful-Daten erforderlich.
-Besuchen Sie dazu [Mein CardGate](https://my.cardgate.com/) und rufen Sie dort Ihre Daten ab,
+Für die Verwendung dieses Moduls sind CardGate RESTful-Daten erforderlich.  
+Besuchen Sie dazu [Mein CardGate](https://my.cardgate.com/) und rufen Sie dort Ihre Daten ab,  
 oder wenden Sie sich an Ihren Account Manager.
 
 ## Installation
@@ -47,7 +47,7 @@ oder wenden Sie sich an Ihren Account Manager.
 
 12. Gehen Sie zu [Mein CardGate](https://my.cardgate.com/), wählen Sie **Webseiten** und wählen Sie die richtige Webseite aus.
 
-13. Geben Sie unter **Technischer Schnittstelle** die **Callback-URL** ein, zum Beispiel:
+13. Geben Sie unter **Technischer Schnittstelle** die **Callback-URL** ein, zum Beispiel:  
     **http://mijnwebshop.com/index.php?route=payment/cardgategeneric/control**  
     (Ersetzen Sie **http://mijnwebshop.com** durch die URL Ihres Webshops.)
 
